@@ -1,3 +1,7 @@
+# 2025-01-07 (Version 2.0.2)
+
+- (**Bugfix**) Fix license information discrepancy (GPL v3 -> AGPLv3).
+
 # 2025-01-07 (Version 2.0.1)
 
 Re-release to include fixes found in `libsftpman` [2.0.1](https://github.com/spantaleev/sftpman-rs/blob/69d6a0474c310d395ba698f377eef5dd75f5807d/CHANGELOG.md#2025-01-07-version-201).

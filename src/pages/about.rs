@@ -139,8 +139,8 @@ fn about_content(theme: &iced::theme::Theme) -> Container<'static, Message> {
     let row_license = row![
         field_control_label(strings::about_license_label(), false, theme).width(ABOUT_LABEL_WIDTH),
         text_link(
-            "GNU General Public License v3.0".to_string(),
-            "https://www.gnu.org/licenses/gpl-3.0.html".to_string()
+            "GNU Affero General Public License v3.0".to_string(),
+            "https://www.gnu.org/licenses/agpl-3.0.html".to_string()
         ),
     ]
     .spacing(WIDGET_HORIZONTAL_SPACING);

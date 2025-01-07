@@ -4,7 +4,7 @@ description = "A GUI frontend to sftpman (an application for managing and mounti
 authors = ["Slavi Pantaleev <slavi@devture.com>"]
 homepage = "https://github.com/spantaleev/sftpman-iced-rs"
 repository = "https://github.com/spantaleev/sftpman-iced-rs"
-license = "GPL-3.0-or-later"
+license = "AGPL-3.0-or-later"
 readme = "README.md"
 keywords = ["sftp", "sshfs", "fuse"]
 categories = ["gui", "network-programming", "filesystem"]
@@ -18,7 +18,7 @@ include = [
   "/CHANGELOG.md",
   "/LICENSE"
 ]
-version = "2.0.1"
+version = "2.0.2"
 edition = "2021"
 
 [dependencies]
