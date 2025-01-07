@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=sftpman-iced
+Comment=Manage & mount sshfs (SFTP) filesystems
+Exec=sftpman-iced
+Icon=sftpman-iced
+Terminal=false
+Type=Application
+StartupNotify=true
+StartupWMClass=sftpman-iced
+Categories=Filesystem;Network;

@@ -1,0 +1,1 @@
+Icons found in this directory are from the [Bootstrap Icons library](https://icons.getbootstrap.com/) and licensed under the [MIT license](./LICENSE).

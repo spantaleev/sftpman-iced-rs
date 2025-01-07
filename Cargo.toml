@@ -1,0 +1,49 @@
+[package]
+name = "sftpman-iced"
+description = "A GUI frontend to sftpman (an application for managing and mounting sshfs (SFTP) filesystems)"
+authors = ["Slavi Pantaleev <slavi@devture.com>"]
+homepage = "https://github.com/spantaleev/sftpman-iced-rs"
+repository = "https://github.com/spantaleev/sftpman-iced-rs"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+keywords = ["sftp", "sshfs", "fuse"]
+categories = ["gui", "network-programming", "filesystem"]
+include = [
+  "/assets/bootstrap",
+  "/assets/sftpman-iced-512.png",
+  "/assets/sftpman-iced.svg",
+  "/src",
+  "/locales",
+  "/README.md",
+  "/CHANGELOG.md",
+  "/LICENSE"
+]
+version = "2.0.0"
+edition = "2021"
+
+[dependencies]
+env_logger = { version = "0.11.*" }
+# We can make wgpu optional and allow the tiny-skia renderer to be used,
+# but we've found main list scrolling performance to be horrible on tiny-skia,
+# so we're hardcoding wgpu here.
+iced = { version = "0.13.*", default-features = false, features = ["tokio", "wgpu"] }
+iced_aw = { version = "0.11.*", default-features = false, features = ["number_input"] }
+log = "0.4.*"
+# For rfd, we rely on xdg-portal, which requires tokio or async-std.
+# The alternative is the gtk3 feature, but that one links to gtk3 - we'd rather be independent.
+rfd = { version = "0.15.*",  default-features = false, features = ["xdg-portal", "tokio"], optional = true }
+rust-i18n = "3.1.2"
+sftpman = { version = "2.0.*", default-features = false }
+tokio = { version="1.42.*", features = ["rt-multi-thread"], optional = true }
+
+[features]
+default = ["auto-detect-theme", "file-picker", "icons"]
+file-picker = ["dep:rfd", "dep:tokio"]
+icons = ["iced/svg"]
+auto-detect-theme = ["iced/auto-detect-theme"]
+x11-icon = ["iced/image"]
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = "thin"

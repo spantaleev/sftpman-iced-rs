@@ -1,0 +1,297 @@
+_version: 2
+
+control_bar_new_label:
+  en: "New"
+  bg: "Нова"
+
+control_bar_new_tooltip:
+  en: "Creates a new remote filesystem definition"
+  bg: "Създава нова дефиниция за отдалечена файлова система"
+
+control_bar_mount_all_label:
+  en: "Mount all"
+  bg: "Монтирай всички"
+
+control_bar_mount_all_tooltip:
+  en: "Mounts all currently visible filesystems"
+  bg: "Монтира всички видими файлови системи"
+
+control_bar_unmount_all_label:
+  en: "Unmount all"
+  bg: "Демонтирай всички"
+
+control_bar_unmount_all_tooltip:
+  en: "Unmounts all currently visible filesystems"
+  bg: "Демонтира всички видими файлови системи"
+
+control_bar_search_label:
+  en: "Search"
+  bg: "Търси"
+
+control_bar_search_tooltip:
+  en: "Searches the list [Ctrl + F or Ctrl + K]"
+  bg: "Търси в списъка [Ctrl + F или Ctrl + K]"
+
+search_input_placeholder:
+  en: "Type to search.."
+  bg: "Пишете за да търсите.."
+
+control_bar_about_label:
+  en: "About"
+  bg: "Относно"
+
+fs_list_open_label:
+  en: "Open"
+  bg: "Отвори"
+
+fs_list_options_label:
+  en: "Options"
+  bg: "Опции"
+
+fs_list_empty_list_label:
+  en: "No remote filesystems are defined yet."
+  bg: "Все още няма дефинирани отдалечени файлови системи."
+
+record_mounted_will_be_remounted_warning_label:
+  en: "This filesystem is currently mounted. Saving will cause a remount."
+  bg: "Тази файлова система е монтирана. Запазването ще причини демонтиране/монтиране."
+
+record_id_label:
+  en: "ID"
+  bg: "Идентификатор"
+
+record_id_placeholder:
+  en: "Unique identifier (e.g. my-remote-system)"
+  bg: "Уникален идентификатор (напр. my-remote-system)"
+
+record_host_label:
+  en: "Host"
+  bg: "Хост"
+
+record_host_placeholder:
+  en: "Hostname or IP address (e.g. example.com or 1.2.3.4)"
+  bg: "Име на хост или IP адрес (напр. example.com или 1.2.3.4)"
+
+record_port_label:
+  en: "Port"
+  bg: "Порт"
+
+record_username_label:
+  en: "Username"
+  bg: "Потребителско име"
+
+record_username_placeholder:
+  en: "E.g. root"
+  bg: "Напр. root"
+
+record_ssh_key_label:
+  en: "SSH key"
+  bg: "SSH ключ"
+
+record_auth_type_label:
+  en: "Authentication Method"
+  bg: "Метод за удостоверяване"
+
+record_remote_path_label:
+  en: "Remote Path"
+  bg: "Отдалечен път"
+
+record_path_placeholder:
+  en: "E.g. %{path}"
+  bg: "Напр. %{path}"
+
+record_mount_dest_path_label:
+  en: "Local Mount Path"
+  bg: "Локален път за монтиране"
+
+record_mount_dest_path_placeholder:
+  en: "If unset, defaults to: /mnt/sshfs/%{id}"
+  bg: "Ако не се посочи, ще бъде: /mnt/sshfs/%{id}"
+
+record_sshfs_options_label:
+  en: "SSHFS options"
+  bg: "Опции за SSHFS"
+
+record_sshfs_options_placeholder:
+  en: "Comma-separated options (e.g. %{example})"
+  bg: "Опции разделени със запетая (напр. %{example})"
+
+record_sshfs_options_help_text:
+  en: "Click here to see the list of available options"
+  bg: "Кликни тук за списък с всички възможни опции"
+
+record_command_before_mount_label:
+  en: "Run before mount"
+  bg: "Изпълни преди монтиране"
+
+record_command_before_mount_placeholder:
+  en: "Command to run before mounting (e.g. %{example})"
+  bg: "Команда за изпълнение преди монтиране (напр. %{example})"
+
+record_save_label:
+  en: "Save"
+  bg: "Запази"
+
+record_cancel_label:
+  en: "Cancel"
+  bg: "Откажи"
+
+browse_label:
+  en: "Browse ..."
+  bg: "Преглед ..."
+
+save_failed_alert_validation_failed_title:
+  en: "Validation failed"
+  bg: "Неуспешна валидация"
+
+save_failed_alert_persistence_failed_title:
+  en: "Failed to persist"
+  bg: "Неуспешно записване"
+
+save_failed_id_check_failed_title:
+  en: "ID uniqueness check failed"
+  bg: "Проверката за уникалност на ID-то е неуспешна"
+
+operation_failed_alert_title:
+  en: "Operation failed"
+  bg: "Операцията е неуспешна"
+
+save_failed_id_uniquness_check_failed_message:
+  en: "The identifier (%{id}) is already in use by another definition!"
+  bg: "Идентификаторът (%{id}) вече се използва от друга дефиниция!"
+
+edit_button_label:
+  en: "Edit"
+  bg: "Редактирай"
+
+clone_button_label:
+  en: "Clone"
+  bg: "Клонирай"
+
+remove_button_label:
+  en: "Remove"
+  bg: "Премахни"
+
+remove_confirmation_title:
+  en: "Confirm removal"
+  bg: "Потвърди премахването"
+
+remove_confirmation_message:
+  en: "Are you sure you want to remove %{id}?"
+  bg: "Сигурни ли сте, че искате да премахнете %{id}?"
+
+remove_confirmation_confirmation_button_label:
+  en: "Remove"
+  bg: "Премахни"
+
+remove_confirmation_cancellation_button_label:
+  en: "Leave it"
+  bg: "Остави го"
+
+remove_failed_alert_title:
+  en: "Failed to remove %{id}"
+  bg: "Неуспешно премахване %{id}"
+
+mount_failed_alert_title:
+  en: "Failed to mount %{id}"
+  bg: "Неуспешно монтиране на %{id}"
+
+mount_failed_alert_message_mount_command:
+  en: "Mount command:"
+  bg: "Команда за монтиране:"
+
+mount_unmount_failed_alert_message_error_debug:
+  en: "Error (debug):"
+  bg: "Грешка (дебъг):"
+
+unmount_failed_alert_title:
+  en: "Failed to unmount %{id}"
+  bg: "Неуспешно демонтиране на %{id}"
+
+unmount_failed_alert_message_unmount_command:
+  en: "Unmount command:"
+  bg: "Команда за демонтиране:"
+
+mount_unmount_failed_button_copy_command_label:
+  en: "Copy command"
+  bg: "Копирай командата"
+
+mount_unmount_failed_button_copy_error_label:
+  en: "Copy error"
+  bg: "Копирай грешката"
+
+open_failed_alert_title:
+  en: "Failed to open %{id}"
+  bg: "Неуспешно отваряне на %{id}"
+
+filesystem_definition_name_mounting_label_mounting_suffix:
+  en: " (mounting...)"
+  bg: " (монтиране...)"
+
+filesystem_definition_name_unmounting_label_unmounting_suffix:
+  en: " (unmounting...)"
+  bg: " (демонтиране...)"
+
+about_program_label:
+  en: "Program"
+  bg: "Програма"
+
+about_program_powered_by_label:
+  en: "powered by:"
+  bg: "базирана на:"
+
+about_description_label:
+  en: "Description"
+  bg: "Описание"
+
+about_description_message:
+  en: "sftpman-iced is a GUI for sftpman, a tool for mounting remote (SFTP/sshfs) filesystems."
+  bg: "sftpman-iced е графичен интерфейс за sftpman, програма за монтиране на отдалечени (SFTP/sshfs) файлови системи."
+
+about_author_label:
+  en: "Author"
+  bg: "Автор"
+
+about_donate_message:
+  en: "If you find this program useful, please consider supporting the author!"
+  bg: "Ако тази програма ви е полезна, моля подкрепете автора!"
+
+about_donate_on_platform_button:
+  en: "Donate on %{platform}"
+  bg: "Дарение чрез %{platform}"
+
+about_license_label:
+  en: "License"
+  bg: "Лиценз"
+
+about_button_close_label:
+  en: "Close"
+  bg: "Затвори"
+
+alert_close_button_label:
+  en: "Close"
+  bg: "Затвори"
+
+confirmation_confirmation_button_label:
+  en: "Confirm"
+  bg: "Потвърди"
+
+confirmation_cancellation_button_label:
+  en: "Cancel"
+  bg: "Откажи"
+
+field_control_label_required_label:
+  en: "*"
+  bg: "*"
+
+field_control_label_required_tooltip:
+  en: "Required field"
+  bg: "Задължително поле"
+
+home_action_button_width:
+  en: "105.0"
+  bg: "135.0"
+
+button_retry:
+  en: "Retry"
+  bg: "Опитай пак"
