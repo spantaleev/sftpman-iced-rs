@@ -38,12 +38,12 @@ control_bar_search_label:
 control_bar_search_tooltip:
   en: "Searches the list [Ctrl + F or Ctrl + K]"
   bg: "Търси в списъка [Ctrl + F или Ctrl + K]"
-  en: "Liste durchsuchen [Ctrl + F or Ctrl + K]"
+  de: "Liste durchsuchen [Ctrl + F or Ctrl + K]"
 
 search_input_placeholder:
   en: "Type to search.."
   bg: "Пишете за да търсите.."
-  en: "Schreibe zum Suchen.."
+  de: "Schreibe zum Suchen.."
 
 control_bar_about_label:
   en: "About"
@@ -368,4 +368,4 @@ home_action_button_width:
 button_retry:
   en: "Retry"
   bg: "Опитай пак"
-  bg: "Versuchs noch mal"
+  de: "Versuchs noch mal"
