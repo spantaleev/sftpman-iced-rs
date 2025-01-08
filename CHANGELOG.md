@@ -1,3 +1,9 @@
+# 2025-01-08 (Version 2.0.3)
+
+- (**Feature**) Added [German](https://github.com/spantaleev/sftpman-iced-rs/pull/1) translation, thanks to [annemarietannengrund](https://github.com/annemarietannengrund)
+
+- (**Feature**) Added [Russian](https://github.com/spantaleev/sftpman-iced-rs/pull/2) translation, thanks to [aine-etke](https://github.com/aine-etke)
+
 # 2025-01-07 (Version 2.0.2)
 
 - (**Bugfix**) Fix license information discrepancy (GPL v3 -> AGPLv3).
