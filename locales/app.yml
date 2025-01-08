@@ -363,7 +363,7 @@ field_control_label_required_tooltip:
 home_action_button_width:
   en: "105.0"
   bg: "135.0"
-  de: "EDIT_ME"
+  de: "125.0"
 
 button_retry:
   en: "Retry"
