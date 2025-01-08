@@ -2,6 +2,7 @@
 Name=sftpman-iced
 Comment=Manage & mount sshfs (SFTP) filesystems
 Comment[bg]=Управление и монтиране на sshfs (SFTP) файлови системи
+Comment[de]=Verwalten & Ein-/Aushängen von sshfs (SFTP) Dateisystemen
 Exec=sftpman-iced
 Icon=sftpman-iced
 Terminal=false
@@ -11,3 +12,4 @@ StartupWMClass=sftpman-iced
 Categories=Filesystem;Network;
 Keywords=sshfs;sftp;network shares;filesystems;mounting;
 Keywords[bg]=sshfs;sftp;мрежови споделяния;файлове системи;монтиране;
+Keywords[de]=sshfs;sftp;Netzwerk shares;Dateisystem;Ein-/Aushängen;
