@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=sftpman-iced
 Comment=Manage & mount sshfs (SFTP) filesystems
+Comment[bg]=Управление и монтиране на sshfs (SFTP) файлови системи
 Exec=sftpman-iced
 Icon=sftpman-iced
 Terminal=false
@@ -8,3 +9,5 @@ Type=Application
 StartupNotify=true
 StartupWMClass=sftpman-iced
 Categories=Filesystem;Network;
+Keywords=sshfs;sftp;network shares;filesystems;mounting;
+Keywords[bg]=sshfs;sftp;мрежови споделяния;файлове системи;монтиране;
