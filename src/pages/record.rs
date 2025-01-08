@@ -144,7 +144,7 @@ impl Record {
             if self.manager.definition(&self.state.definition.id).is_ok() {
                 return self.alert(
                     strings::save_failed_id_check_failed_title(),
-                    strings::save_failed_id_uniquness_check_failed_message(
+                    strings::save_failed_id_uniqueness_check_failed_message(
                         &self.state.definition.id,
                     ),
                 );

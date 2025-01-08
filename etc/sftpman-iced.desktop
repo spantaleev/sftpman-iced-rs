@@ -13,3 +13,4 @@ Categories=Filesystem;Network;
 Keywords=sshfs;sftp;network shares;filesystems;mounting;
 Keywords[bg]=sshfs;sftp;мрежови споделяния;файлове системи;монтиране;
 Keywords[de]=sshfs;sftp;Netzwerk shares;Dateisystem;Ein-/Aushängen;
+Keywords[ru]=sshfs;sftp;сетевые ресурсы;файловые системы;монтирование;
