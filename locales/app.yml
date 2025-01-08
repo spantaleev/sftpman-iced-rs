@@ -436,7 +436,7 @@ home_action_button_width:
   en: "105.0"
   bg: "135.0"
   de: "125.0"
-  ru: "135.0"
+  ru: "160.0"
 
 button_retry:
   en: "Retry"
