@@ -188,8 +188,8 @@ pub fn operation_failed_alert_message(error: &str) -> String {
     error.to_string()
 }
 
-pub fn save_failed_id_uniquness_check_failed_message(id: &str) -> String {
-    t!("save_failed_id_uniquness_check_failed_message", id = id).to_string()
+pub fn save_failed_id_uniqueness_check_failed_message(id: &str) -> String {
+    t!("save_failed_id_uniqueness_check_failed_message", id = id).to_string()
 }
 
 pub fn edit_button_label() -> String {

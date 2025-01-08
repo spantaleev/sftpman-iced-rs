@@ -4,368 +4,442 @@ control_bar_new_label:
   en: "New"
   bg: "Нова"
   de: "Neu"
+  ru: "Новый"
 
 control_bar_new_tooltip:
   en: "Creates a new remote filesystem definition"
   bg: "Създава нова дефиниция за отдалечена файлова система"
   de: "Erstellt eine neue remote Dateisystemdefinition"
+  ru: "Создать новое определение удаленной файловой системы"
 
 control_bar_mount_all_label:
   en: "Mount all"
   bg: "Монтирай всички"
   de: "Alle einhängen"
+  ru: "Смонтировать всё"
 
 control_bar_mount_all_tooltip:
   en: "Mounts all currently visible filesystems"
   bg: "Монтира всички видими файлови системи"
   de: "Hängt alle momentan sichtbaren Dateisysteme ein"
+  ru: "Смонтировать все видимые файловые системы"
 
 control_bar_unmount_all_label:
   en: "Unmount all"
   bg: "Демонтирай всички"
   de: "Alle aushängen"
+  ru: "Демонтировать всё"
 
 control_bar_unmount_all_tooltip:
   en: "Unmounts all currently visible filesystems"
   bg: "Демонтира всички видими файлови системи"
   de: "Hängt alle momentan sichtbaren Dateisysteme aus"
+  ru: "Демонтировать все видимые файловые системы"
 
 control_bar_search_label:
   en: "Search"
   bg: "Търси"
   de: "Suchen"
+  ru: "Поиск"
 
 control_bar_search_tooltip:
   en: "Searches the list [Ctrl + F or Ctrl + K]"
   bg: "Търси в списъка [Ctrl + F или Ctrl + K]"
   de: "Liste durchsuchen [Ctrl + F or Ctrl + K]"
+  ru: "Поиск в списке [Ctrl + F или Ctrl + K]"
 
 search_input_placeholder:
   en: "Type to search.."
   bg: "Пишете за да търсите.."
   de: "Schreibe zum Suchen.."
+  ru: "Пишите для поиска.."
 
 control_bar_about_label:
   en: "About"
   bg: "Относно"
   de: "Über"
+  ru: "О программе"
 
 fs_list_open_label:
   en: "Open"
   bg: "Отвори"
   de: "Öffnen"
+  ru: "Открыть"
 
 fs_list_options_label:
   en: "Options"
   bg: "Опции"
   de: "Optionen"
+  ru: "Опции"
 
 fs_list_empty_list_label:
   en: "No remote filesystems are defined yet."
   bg: "Все още няма дефинирани отдалечени файлови системи."
   de: "Es wurden noch keine remote Dateisysteme definiert."
+  ru: "Пока нет определенных удаленных файловых систем."
 
 record_mounted_will_be_remounted_warning_label:
   en: "This filesystem is currently mounted. Saving will cause a remount."
   bg: "Тази файлова система е монтирана. Запазването ще причини демонтиране/монтиране."
   de: "Dieses Dateisystem ist gerade eingehängt. Speichern wird für ein erneutes Einhängen sorgen."
+  ru: "Эта файловая система сейчас смонтирована. Сохранение вызовет перемонтирование (демонтирование/монтирование)."
 
 record_id_label:
   en: "ID"
   bg: "Идентификатор"
   de: "Kennung"
+  ru: "Идентификатор"
 
 record_id_placeholder:
   en: "Unique identifier (e.g. my-remote-system)"
   bg: "Уникален идентификатор (напр. my-remote-system)"
   de: "Eindeutige Kennung (z.b. my-remote-system)"
+  ru: "Уникальный идентификатор (напр. my-remote-system)"
 
 record_host_label:
   en: "Host"
   bg: "Хост"
   de: "Host"
+  ru: "Хост"
 
 record_host_placeholder:
   en: "Hostname or IP address (e.g. example.com or 1.2.3.4)"
   bg: "Име на хост или IP адрес (напр. example.com или 1.2.3.4)"
   de: "Hostnamen oder IP Addresse (z.b. example.com or 1.2.3.4)"
+  ru: "Имя хоста или IP-адрес (напр., example.com или 1.2.3.4)"
 
 record_port_label:
   en: "Port"
   bg: "Порт"
   de: "Port"
+  ru: "Порт"
 
 record_username_label:
   en: "Username"
   bg: "Потребителско име"
   de: "Benutzername"
+  ru: "Имя пользователя"
 
 record_username_placeholder:
   en: "E.g. root"
   bg: "Напр. root"
   de: "Z.b. root"
+  ru: "Напр. root"
 
 record_ssh_key_label:
   en: "SSH key"
   bg: "SSH ключ"
   de: "SSH Schlüssel"
+  ru: "SSH ключ"
 
 record_auth_type_label:
   en: "Authentication Method"
   bg: "Метод за удостоверяване"
   de: "Authentifizierungsmethode"
+  ru: "Метод аутентификации"
 
 record_remote_path_label:
   en: "Remote Path"
   bg: "Отдалечен път"
   de: "Remotepfad"
+  ru: "Удаленный путь"
 
 record_path_placeholder:
   en: "E.g. %{path}"
   bg: "Напр. %{path}"
   de: "Z.b. %{path}"
+  ru: "Напр. %{path}"
 
 record_mount_dest_path_label:
   en: "Local Mount Path"
   bg: "Локален път за монтиране"
   de: "Lokaler einhängpfad"
+  ru: "Локальный путь для монтирования"
 
 record_mount_dest_path_placeholder:
   en: "If unset, defaults to: /mnt/sshfs/%{id}"
   bg: "Ако не се посочи, ще бъде: /mnt/sshfs/%{id}"
   de: "Wenn ungewählt, benutzt Standardwert: /mnt/sshfs/%{id}"
+  ru: "Если не указано, по умолчанию: /mnt/sshfs/%{id}"
 
 record_sshfs_options_label:
   en: "SSHFS options"
   bg: "Опции за SSHFS"
   de: "SSHFS Optionen"
+  ru: "Опции SSHFS"
 
 record_sshfs_options_placeholder:
   en: "Comma-separated options (e.g. %{example})"
   bg: "Опции разделени със запетая (напр. %{example})"
   de: "Komma-getrennte optionen (z.b. %{example})"
+  ru: "Опции, разделенные запятыми (напр., %{example})"
 
 record_sshfs_options_help_text:
   en: "Click here to see the list of available options"
   bg: "Кликни тук за списък с всички възможни опции"
   de: "Hier klicken, um eine Liste aller verfügbaren Optionen zu sehen"
+  ru: "Нажмите здесь, чтобы увидеть список доступных опций"
 
 record_command_before_mount_label:
   en: "Run before mount"
   bg: "Изпълни преди монтиране"
   de: "Vor dem Einhängen ausführen"
+  ru: "Запустить перед монтированием"
 
 record_command_before_mount_placeholder:
   en: "Command to run before mounting (e.g. %{example})"
   bg: "Команда за изпълнение преди монтиране (напр. %{example})"
   de: "Kommando zum Ausführen vor dem Einhängen (z.b. %{example})"
+  ru: "Команда для выполнения перед монтированием (напр., %{example})"
 
 record_save_label:
   en: "Save"
   bg: "Запази"
   de: "Speichern"
+  ru: "Сохранить"
 
 record_cancel_label:
   en: "Cancel"
   bg: "Откажи"
   de: "Abbrechen"
+  ru: "Отмена"
 
 browse_label:
   en: "Browse ..."
   bg: "Преглед ..."
   de: "Durchsuchen ..."
+  ru: "Обзор ..."
 
 save_failed_alert_validation_failed_title:
   en: "Validation failed"
   bg: "Неуспешна валидация"
   de: "Validierung fehlgeschlagen"
+  ru: "Ошибка валидации"
 
 save_failed_alert_persistence_failed_title:
   en: "Failed to persist"
   bg: "Неуспешно записване"
   de: "Persistieren fehlgeschlagen"
+  ru: "Ошибка сохранения"
 
 save_failed_id_check_failed_title:
   en: "ID uniqueness check failed"
   bg: "Проверката за уникалност на ID-то е неуспешна"
   de: "Kennung Einzigartigkeitsprüfung fehlgeschlagen"
+  ru: "Проверка уникальности ID провалилась"
 
 operation_failed_alert_title:
   en: "Operation failed"
   bg: "Операцията е неуспешна"
   de: "Operation fehlgeschlagen"
+  ru: "Операция не удалась"
 
-save_failed_id_uniquness_check_failed_message:
+save_failed_id_uniqueness_check_failed_message:
   en: "The identifier (%{id}) is already in use by another definition!"
   bg: "Идентификаторът (%{id}) вече се използва от друга дефиниция!"
   de: "Die Kennung (%{id}) wird bereits in einer anderen Definition genutzt!"
+  ru: "Идентификатор (%{id}) уже используется другим определением!"
 
 edit_button_label:
   en: "Edit"
   bg: "Редактирай"
   de: "Bearbeiten"
+  ru: "Редактировать"
 
 clone_button_label:
   en: "Clone"
   bg: "Клонирай"
   de: "Klonen"
+  ru: "Клонировать"
 
 remove_button_label:
   en: "Remove"
   bg: "Премахни"
   de: "Entfernen"
+  ru: "Удалить"
 
 remove_confirmation_title:
   en: "Confirm removal"
   bg: "Потвърди премахването"
   de: "Entfernen bestätigen"
+  ru: "Подтвердите удаление"
 
 remove_confirmation_message:
   en: "Are you sure you want to remove %{id}?"
   bg: "Сигурни ли сте, че искате да премахнете %{id}?"
   de: "Willst du diese Kennung wirklich entfernen %{id}?"
+  ru: "Вы уверены, что хотите удалить %{id}?"
 
 remove_confirmation_confirmation_button_label:
   en: "Remove"
   bg: "Премахни"
   de: "Entfernen"
+  ru: "Удалить"
 
 remove_confirmation_cancellation_button_label:
   en: "Leave it"
   bg: "Остави го"
   de: "Lass das"
+  ru: "Оставить"
 
 remove_failed_alert_title:
   en: "Failed to remove %{id}"
   bg: "Неуспешно премахване %{id}"
   de: "Entfernen der Kennung fehlgeschlagen %{id}"
+  ru: "Не удалось удалить %{id}"
 
 mount_failed_alert_title:
   en: "Failed to mount %{id}"
   bg: "Неуспешно монтиране на %{id}"
   de: "Einhängen von %{id} fehlgeschlagen"
+  ru: "Не удалось смонтировать %{id}"
 
 mount_failed_alert_message_mount_command:
   en: "Mount command:"
   bg: "Команда за монтиране:"
   de: "Einhängebefehl:"
+  ru: "Команда монтирования:"
 
 mount_unmount_failed_alert_message_error_debug:
   en: "Error (debug):"
   bg: "Грешка (дебъг):"
   de: "Fehler (entkäfern):"
+  ru: "Ошибка (дебаг):"
 
 unmount_failed_alert_title:
   en: "Failed to unmount %{id}"
   bg: "Неуспешно демонтиране на %{id}"
   de: "Aushängen von %{id} fehlgeschlagen"
+  ru: "Не удалось демонтировать %{id}"
 
 unmount_failed_alert_message_unmount_command:
   en: "Unmount command:"
   bg: "Команда за демонтиране:"
   de: "Aushängebefehl:"
+  ru: "Команда демонтирования:"
 
 mount_unmount_failed_button_copy_command_label:
   en: "Copy command"
   bg: "Копирай командата"
   de: "Kopierbefehl"
+  ru: "Команда копирования"
 
 mount_unmount_failed_button_copy_error_label:
   en: "Copy error"
   bg: "Копирай грешката"
   de: "Kopierfehler"
+  ru: "Копирование не удалось"
 
 open_failed_alert_title:
   en: "Failed to open %{id}"
   bg: "Неуспешно отваряне на %{id}"
   de: "Öffnen von %{id} Fehlgeschlagen"
+  ru: "Не удалось открыть %{id}"
 
 filesystem_definition_name_mounting_label_mounting_suffix:
   en: " (mounting...)"
   bg: " (монтиране...)"
   de: " (Einhängen...)"
+  ru: " (монтирование...)"
 
 filesystem_definition_name_unmounting_label_unmounting_suffix:
   en: " (unmounting...)"
   bg: " (демонтиране...)"
   de: " (Aushängen...)"
+  ru: " (демонтирование...)"
 
 about_program_label:
   en: "Program"
   bg: "Програма"
   de: "Programm"
+  ru: "Программа"
 
 about_program_powered_by_label:
   en: "powered by:"
   bg: "базирана на:"
   de: "Angetrieben durch:"
+  ru: "работает на:"
 
 about_description_label:
   en: "Description"
   bg: "Описание"
   de: "Beschreibung"
+  ru: "Описание"
 
 about_description_message:
   en: "sftpman-iced is a GUI for sftpman, a tool for mounting remote (SFTP/sshfs) filesystems."
   bg: "sftpman-iced е графичен интерфейс за sftpman, програма за монтиране на отдалечени (SFTP/sshfs) файлови системи."
   de: "sftpman-iced ist eine grafische Oberfläche für sftpman, ein Tool zum mounten (Ein-/Aushängen) von remote (SFTP/sshfs) Dateisystemen."
+  ru: "sftpman-iced - это графический интерфейс для sftpman, инструмента для монтирования удаленных (SFTP/sshfs) файловых систем."
 
 about_author_label:
   en: "Author"
   bg: "Автор"
   de: "Autor"
+  ru: "Автор"
 
 about_donate_message:
   en: "If you find this program useful, please consider supporting the author!"
   bg: "Ако тази програма ви е полезна, моля подкрепете автора!"
   de: "Wenn du dieses Programm nützlich findest, dann denk bitte darüber nach, den Autor zu unterstützen!"
+  ru: "Если программа вам пригодилась, пожалуйста, поддержите автора!"
 
 about_donate_on_platform_button:
   en: "Donate on %{platform}"
   bg: "Дарение чрез %{platform}"
   de: "Spende via %{platform}"
+  ru: "Поддержать на %{platform}"
 
 about_license_label:
   en: "License"
   bg: "Лиценз"
   de: "Lizenz"
+  ru: "Лицензия"
 
 about_button_close_label:
   en: "Close"
   bg: "Затвори"
   de: "Schließen"
+  ru: "Закрыть"
 
 alert_close_button_label:
   en: "Close"
   bg: "Затвори"
   de: "Schließen"
+  ru: "Закрыть"
 
 confirmation_confirmation_button_label:
   en: "Confirm"
   bg: "Потвърди"
   de: "Bestätigen"
+  ru: "Подтвердить"
 
 confirmation_cancellation_button_label:
   en: "Cancel"
   bg: "Откажи"
   de: "Abbrechen"
+  ru: "Отмена"
 
 field_control_label_required_label:
   en: "*"
   bg: "*"
   de: "*"
+  ru: "*"
 
 field_control_label_required_tooltip:
   en: "Required field"
   bg: "Задължително поле"
   de: "Benötigtes Feld"
+  ru: "Обязательное поле"
 
 home_action_button_width:
   en: "105.0"
   bg: "135.0"
   de: "125.0"
+  ru: "135.0"
 
 button_retry:
   en: "Retry"
   bg: "Опитай пак"
   de: "Versuchs noch mal"
+  ru: "Повторить"
