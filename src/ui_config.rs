@@ -16,7 +16,7 @@ pub const FS_LIST_EMPTY_LIST_ICON_SIZE: u16 = 48;
 
 pub const MODAL_VERTICAL_SPACING: u16 = 20;
 pub const MODAL_PADDING: u16 = 10;
-pub const MODAL_MAX_HEIGHT: u16 = 450;
+pub const MODAL_MAX_HEIGHT: u16 = 480;
 pub const MODAL_WIDTH: u16 = 450;
 pub const MODAL_TITLE_SIZE: u16 = 24;
 pub const MODAL_MESSAGE_SIZE: u16 = 16;
