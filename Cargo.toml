@@ -34,7 +34,7 @@ log = "0.4.*"
 rfd = { version = "0.15.*",  default-features = false, features = ["xdg-portal", "tokio"], optional = true }
 rust-i18n = "3.1.2"
 sftpman = { version = "2.0.*", default-features = false }
-tokio = { version="1.42.*", features = ["rt-multi-thread"], optional = true }
+tokio = { version="1.43.*", features = ["rt-multi-thread"], optional = true }
 
 [features]
 default = ["auto-detect-theme", "file-picker", "icons"]
