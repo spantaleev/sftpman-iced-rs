@@ -1,3 +1,7 @@
+# Version 2025-01-12 (Version 2.0.4)
+
+Re-release to include fixes found in `libsftpman` [2.0.3](https://github.com/spantaleev/sftpman-rs/blob/d5ea3634103e126cb4a33baa22cfb7eafb43981b/CHANGELOG.md#2025-01-12-version-203).
+
 # 2025-01-08 (Version 2.0.3)
 
 - (**Feature**) Added [German](https://github.com/spantaleev/sftpman-iced-rs/pull/1) translation, thanks to [annemarietannengrund](https://github.com/annemarietannengrund)

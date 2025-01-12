@@ -18,7 +18,7 @@ include = [
   "/CHANGELOG.md",
   "/LICENSE"
 ]
-version = "2.0.3"
+version = "2.0.4"
 edition = "2021"
 
 [dependencies]
@@ -33,7 +33,7 @@ log = "0.4.*"
 # The alternative is the gtk3 feature, but that one links to gtk3 - we'd rather be independent.
 rfd = { version = "0.15.*",  default-features = false, features = ["xdg-portal", "tokio"], optional = true }
 rust-i18n = "3.1.2"
-sftpman = { version = "2.0.*", default-features = false }
+sftpman = { version = ">=2.0.3", default-features = false }
 tokio = { version="1.43.*", features = ["rt-multi-thread"], optional = true }
 
 [features]

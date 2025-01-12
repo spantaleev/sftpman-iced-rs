@@ -3632,9 +3632,9 @@ dependencies = [
 
 [[package]]
 name = "sftpman"
-version = "2.0.2"
+version = "2.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1a5953146d87697aea4422dd8b8faeaa2615cb25b918565ab8b3b305dfd35240"
+checksum = "158617bea00f99c850c8c7fd05f26d72e72252ab6d67118f65bec852154e5284"
 dependencies = [
  "directories",
  "env_logger",
@@ -3651,7 +3651,7 @@ dependencies = [
 
 [[package]]
 name = "sftpman-iced"
-version = "2.0.3"
+version = "2.0.4"
 dependencies = [
  "env_logger",
  "iced",
@@ -4076,9 +4076,9 @@ checksum = "1f3ccbac311fea05f86f61904b462b55fb3df8837a366dfc601a0161d0532f20"
 
 [[package]]
 name = "tokio"
-version = "1.42.0"
+version = "1.43.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5cec9b21b0450273377fc97bd4c33a8acffc8c996c987a7c5b319a0083707551"
+checksum = "3d61fa4ffa3de412bfea335c6ecff681de2b609ba3c77ef3e00e521813a9ed9e"
 dependencies = [
  "backtrace",
  "bytes",
