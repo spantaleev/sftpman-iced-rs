@@ -578,7 +578,7 @@ impl Page for Home {
             }
 
             Message::MountAll => {
-                // This performs synchronous mounting of all filesystems, by:
+                // This performs synchronous mounting of all unmounted filesystems, by:
                 // - returning a task that immediately mounts the first one
                 // - recording all others in `mounting_scheduled_for_definitions` for later mounting
                 //
@@ -586,10 +586,12 @@ impl Page for Home {
                 //
                 // We intentionally mount synchronously (in the foreground) to be able to ask for SSH key passphrases, etc.
 
-                let state_filtered = self.filesystems_filtered();
+                let state_filtered_unmounted_only = self.filesystems_filtered()
+                    .into_iter()
+                    .filter(|item| !item.mounted)
+                    .collect::<Vec<_>>();
 
-                let first_definition = state_filtered.first();
-                let Some(first_definition) = first_definition else {
+                let Some(first_definition) = state_filtered_unmounted_only.first() else {
                     return Navigation::None(Task::none());
                 };
 
@@ -598,7 +600,7 @@ impl Page for Home {
                     Task::perform(async { Message::Mount(first_def) }, GlobalMessage::Home);
 
                 // Schedule all others
-                for entity in state_filtered.iter().skip(1) {
+                for entity in state_filtered_unmounted_only.iter().skip(1) {
                     self.state
                         .mounting_scheduled_for_definitions
                         .push(entity.definition.clone());
@@ -607,7 +609,7 @@ impl Page for Home {
                 Navigation::None(task_mount_first)
             }
             Message::UnmountAll => {
-                // This performs synchronous unmounting of all filesystems, by:
+                // This performs synchronous unmounting of all mounted filesystems, by:
                 // - returning a task that immediately unmounts the first one
                 // - recording all others in `unmounting_scheduled_for_definitions` for later unmounting
                 //
@@ -616,10 +618,12 @@ impl Page for Home {
                 // We intentionally unmount synchronously (in the foreground) to be able to ask for SSH key passphrases, etc.
                 // If we background it, we can do none of that.
 
-                let state_filtered = self.filesystems_filtered();
+                let state_filtered_mounted_only = self.filesystems_filtered()
+                    .into_iter()
+                    .filter(|item| item.mounted)
+                    .collect::<Vec<_>>();
 
-                let first_definition = state_filtered.first();
-                let Some(first_definition) = first_definition else {
+                let Some(first_definition) = state_filtered_mounted_only.first() else {
                     return Navigation::None(Task::none());
                 };
 
@@ -628,7 +632,7 @@ impl Page for Home {
                     Task::perform(async { Message::Unmount(first_def) }, GlobalMessage::Home);
 
                 // Schedule all others
-                for entity in state_filtered.iter().skip(1) {
+                for entity in state_filtered_mounted_only.iter().skip(1) {
                     self.state
                         .unmounting_scheduled_for_definitions
                         .push(entity.definition.clone());
