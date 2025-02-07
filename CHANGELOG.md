@@ -1,3 +1,7 @@
+# Version 2025-02-07 (Version 2.0.6)
+
+- Dependency updates
+
 # Version 2025-01-19 (Version 2.0.5)
 
 - (**Improvement**) Prevent doing unnecessary work when doing "Mount all" / "Unmount all" operations.
