@@ -365,7 +365,7 @@ fn record(state: State, theme: &iced::theme::Theme) -> Container<'static, Global
     let def = definition.clone();
     let row_port = row![
         field_control_label(strings::record_port_label(), true, theme).width(RECORD_LABEL_WIDTH),
-        number_input(def.port, 1..65535, |v| {
+        number_input(&def.port, 1..65535, |v| {
             GlobalMessage::Record(Message::PortChanged(v))
         })
     ]

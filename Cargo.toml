@@ -27,13 +27,13 @@ env_logger = { version = "0.11.*" }
 # but we've found main list scrolling performance to be horrible on tiny-skia,
 # so we're hardcoding wgpu here.
 iced = { version = "0.13.*", default-features = false, features = ["tokio", "wgpu"] }
-iced_aw = { version = "0.11.*", default-features = false, features = ["number_input"] }
+iced_aw = { version = "0.12.*", default-features = false, features = ["number_input"] }
 log = "0.4.*"
 # For rfd, we rely on xdg-portal, which requires tokio or async-std.
 # The alternative is the gtk3 feature, but that one links to gtk3 - we'd rather be independent.
 rfd = { version = "0.15.*",  default-features = false, features = ["xdg-portal", "tokio"], optional = true }
-rust-i18n = "3.1.2"
-sftpman = { version = ">=2.0.4", default-features = false }
+rust-i18n = "3.1.3"
+sftpman = { version = ">=2.0.5", default-features = false }
 tokio = { version="1.43.*", features = ["rt-multi-thread"], optional = true }
 
 [features]
