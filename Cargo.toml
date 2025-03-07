@@ -19,7 +19,7 @@ include = [
   "/LICENSE"
 ]
 version = "2.0.6"
-edition = "2021"
+edition = "2024"
 
 [dependencies]
 env_logger = { version = "0.11.*" }
