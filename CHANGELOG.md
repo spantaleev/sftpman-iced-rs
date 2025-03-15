@@ -1,3 +1,7 @@
+# 2025-03-15 (Version 2.0.8)
+
+- Dependency updates
+
 # 2025-03-07 (Version 2.0.7)
 
 - Dependency updates
