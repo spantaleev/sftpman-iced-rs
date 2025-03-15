@@ -33,8 +33,8 @@ log = "0.4.*"
 # The alternative is the gtk3 feature, but that one links to gtk3 - we'd rather be independent.
 rfd = { version = "0.15.*",  default-features = false, features = ["xdg-portal", "tokio"], optional = true }
 rust-i18n = "3.1.3"
-sftpman = { version = ">=2.0.5", default-features = false }
-tokio = { version="1.43.*", features = ["rt-multi-thread"], optional = true }
+sftpman = { version = ">=2.0.6", default-features = false }
+tokio = { version="1.44.*", features = ["rt-multi-thread"], optional = true }
 
 [features]
 default = ["auto-detect-theme", "file-picker", "icons"]
