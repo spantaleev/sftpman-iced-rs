@@ -1,4 +1,4 @@
-use iced::widget::{column, container, horizontal_space, row, scrollable, text, Container, Space};
+use iced::widget::{Container, Space, column, container, horizontal_space, row, scrollable, text};
 use iced::{Element, Length};
 
 #[cfg(feature = "icons")]
@@ -11,7 +11,7 @@ use crate::ui_config::{
     ABOUT_LABEL_WIDTH, ABOUT_MODAL_WIDTH, MODAL_MAX_HEIGHT, MODAL_PADDING, MODAL_VERTICAL_SPACING,
     SCROLLBAR_RESERVED_SPACE, WIDGET_HORIZONTAL_SPACING, WIDGET_VERTICAL_SPACING,
 };
-use crate::widgets::{field_control_label, modal, text_link, Button};
+use crate::widgets::{Button, field_control_label, modal, text_link};
 
 const SFTPMAN_ICED_LINK: &str = "https://github.com/spantaleev/sftpman-iced-rs";
 const SFTPMAN_LINK: &str = "https://github.com/spantaleev/sftpman-rs";

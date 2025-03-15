@@ -1,13 +1,13 @@
 use iced::{
-    widget::{column, container, text, Container},
     Length,
+    widget::{Container, column, container, text},
 };
 
 #[cfg(feature = "icons")]
 use iced::widget::svg;
 
 #[cfg(feature = "icons")]
-use crate::widgets::{icon, IconColor};
+use crate::widgets::{IconColor, icon};
 
 use crate::{messages::Message, ui_config::WIDGET_VERTICAL_SPACING};
 use crate::{strings, ui_config::FS_LIST_EMPTY_LIST_ICON_SIZE};

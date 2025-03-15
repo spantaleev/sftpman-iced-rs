@@ -1,5 +1,5 @@
-use iced::widget::{horizontal_space, row, toggler, Column, Container, Row};
 use iced::Length;
+use iced::widget::{Column, Container, Row, horizontal_space, row, toggler};
 
 #[cfg(feature = "icons")]
 use iced::widget::svg;
@@ -11,8 +11,8 @@ use crate::messages::Message;
 use crate::pages::HomeMessage;
 use crate::strings;
 use crate::ui_config::{
-    home_action_button_width, FS_LIST_SPACING_BETWEEN_ROWS,
-    FS_LIST_SPACING_BETWEEN_ROW_AND_OPTIONS, WIDGET_HORIZONTAL_SPACING,
+    FS_LIST_SPACING_BETWEEN_ROW_AND_OPTIONS, FS_LIST_SPACING_BETWEEN_ROWS,
+    WIDGET_HORIZONTAL_SPACING, home_action_button_width,
 };
 
 pub fn fs_list(

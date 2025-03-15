@@ -1,18 +1,18 @@
-use iced::widget::{container, text, Column, Container, Row};
 use iced::Alignment::Center;
+use iced::widget::{Column, Container, Row, container, text};
 
+use iced::Length;
 #[cfg(feature = "icons")]
 use iced::widget::svg;
-use iced::Length;
 
 use crate::messages::Message;
 use crate::pages::HomeMessage;
 use crate::strings;
 use crate::ui_config::{
-    home_action_button_width, ICON_SIZE, ICON_TO_TEXT_SPACING, WIDGET_HORIZONTAL_SPACING,
-    WIDGET_VERTICAL_SPACING,
+    ICON_SIZE, ICON_TO_TEXT_SPACING, WIDGET_HORIZONTAL_SPACING, WIDGET_VERTICAL_SPACING,
+    home_action_button_width,
 };
-use crate::widgets::{icon, Button, IconColor};
+use crate::widgets::{Button, IconColor, icon};
 
 pub fn preflight_check_errors_bar(
     errors: Vec<String>,

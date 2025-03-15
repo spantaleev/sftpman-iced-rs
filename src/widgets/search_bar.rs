@@ -1,5 +1,5 @@
-use iced::widget::{row, text_input, Row};
 use iced::Center;
+use iced::widget::{Row, row, text_input};
 
 use crate::messages::Message;
 use crate::pages::HomeMessage;

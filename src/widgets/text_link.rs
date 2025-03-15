@@ -1,4 +1,4 @@
-use iced::widget::{container, Container};
+use iced::widget::{Container, container};
 
 use crate::application::ApplicationMessage;
 use crate::messages::Message;

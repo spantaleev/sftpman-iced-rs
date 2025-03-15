@@ -1,4 +1,4 @@
-use iced::widget::{horizontal_space, row, Row};
+use iced::widget::{Row, horizontal_space, row};
 use iced::{Center, Length};
 
 #[cfg(feature = "icons")]
@@ -8,7 +8,7 @@ use super::{Button, ButtonStyle};
 use crate::messages::Message;
 use crate::pages::HomeMessage;
 use crate::strings;
-use crate::ui_config::{home_action_button_width, WIDGET_HORIZONTAL_SPACING};
+use crate::ui_config::{WIDGET_HORIZONTAL_SPACING, home_action_button_width};
 
 pub fn control_bar(
     are_all_mounted: bool,

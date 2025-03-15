@@ -1,5 +1,5 @@
 use iced::widget::container::rounded_box;
-use iced::widget::{container, horizontal_space, row, text, tooltip, Container};
+use iced::widget::{Container, container, horizontal_space, row, text, tooltip};
 
 use crate::messages::Message;
 use crate::strings;

@@ -1,7 +1,7 @@
 use std::time::{Duration, Instant};
 
-use iced::widget::{column, container, scrollable, text_input, Container};
-use iced::{keyboard, time, Length, Padding, Subscription, Task};
+use iced::widget::{Container, column, container, scrollable, text_input};
+use iced::{Length, Padding, Subscription, Task, keyboard, time};
 
 #[cfg(feature = "icons")]
 use iced::widget::svg;
@@ -10,14 +10,14 @@ use libsftpman::{FilesystemMountDefinition, Manager, MountState};
 
 use crate::application::{ApplicationMessage, Navigation, Page};
 use crate::messages::Message as GlobalMessage;
-use crate::pages::{about, alert, confirmation, AlertConfig, ConfirmationConfig, Record};
+use crate::pages::{AlertConfig, ConfirmationConfig, Record, about, alert, confirmation};
 use crate::strings;
 use crate::ui_config::{
     MOUNT_ERROR_MODAL_WIDTH, SCROLLBAR_RESERVED_SPACE, WIDGET_VERTICAL_SPACING,
 };
 use crate::widgets::{
-    control_bar, fs_empty_list, fs_list, preflight_check_errors_bar, search_bar, Button,
-    ButtonStyle, SEARCH_BAR_INPUT_FIELD_ID,
+    Button, ButtonStyle, SEARCH_BAR_INPUT_FIELD_ID, control_bar, fs_empty_list, fs_list,
+    preflight_check_errors_bar, search_bar,
 };
 
 const REFRESH_INTERVAL_MS: u64 = 5000;
@@ -586,7 +586,8 @@ impl Page for Home {
                 //
                 // We intentionally mount synchronously (in the foreground) to be able to ask for SSH key passphrases, etc.
 
-                let state_filtered_unmounted_only = self.filesystems_filtered()
+                let state_filtered_unmounted_only = self
+                    .filesystems_filtered()
                     .into_iter()
                     .filter(|item| !item.mounted)
                     .collect::<Vec<_>>();
@@ -618,7 +619,8 @@ impl Page for Home {
                 // We intentionally unmount synchronously (in the foreground) to be able to ask for SSH key passphrases, etc.
                 // If we background it, we can do none of that.
 
-                let state_filtered_mounted_only = self.filesystems_filtered()
+                let state_filtered_mounted_only = self
+                    .filesystems_filtered()
                     .into_iter()
                     .filter(|item| item.mounted)
                     .collect::<Vec<_>>();

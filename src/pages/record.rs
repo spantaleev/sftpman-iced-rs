@@ -1,9 +1,9 @@
-use iced::widget::{
-    self, column, container, horizontal_space, pick_list, row, scrollable, text, text_input,
-    Column, Container, Row, Space,
-};
 use iced::Alignment::Center;
-use iced::{keyboard, Element, Length, Padding, Subscription, Task};
+use iced::widget::{
+    self, Column, Container, Row, Space, column, container, horizontal_space, pick_list, row,
+    scrollable, text, text_input,
+};
+use iced::{Element, Length, Padding, Subscription, Task, keyboard};
 use iced_aw::number_input;
 
 #[cfg(feature = "icons")]
@@ -14,17 +14,17 @@ use libsftpman::{AuthType, FilesystemMountDefinition, Manager};
 
 use crate::application::{Navigation, Page};
 use crate::messages::Message as GlobalMessage;
-use crate::pages::{alert, AlertConfig};
+use crate::pages::{AlertConfig, alert};
 use crate::strings;
 use crate::ui_config::{
     ICON_SIZE, ICON_TO_TEXT_SPACING, RECORD_LABEL_WIDTH, SCROLLBAR_RESERVED_SPACE,
     WIDGET_HORIZONTAL_SPACING, WIDGET_VERTICAL_SPACING,
 };
 use crate::utils::errors_to_string_list;
-use crate::widgets::{field_control_label, text_link, Button, ButtonStyle};
+use crate::widgets::{Button, ButtonStyle, field_control_label, text_link};
 
 #[cfg(feature = "icons")]
-use crate::widgets::{icon, IconColor};
+use crate::widgets::{IconColor, icon};
 
 #[derive(Debug, Clone)]
 pub enum Message {

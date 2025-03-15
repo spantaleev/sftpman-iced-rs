@@ -21,7 +21,7 @@ fn detect_locale_by_lang_value(lang: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-    use super::{detect_locale_by_lang_value, DEFAULT_LOCALE};
+    use super::{DEFAULT_LOCALE, detect_locale_by_lang_value};
 
     #[test]
     fn test_detect_locale() {

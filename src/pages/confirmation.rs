@@ -1,5 +1,5 @@
-use iced::widget::{column, container, horizontal_space, row, scrollable, text, Container, Space};
 use iced::Alignment::Center;
+use iced::widget::{Container, Space, column, container, horizontal_space, row, scrollable, text};
 use iced::{Element, Length};
 
 #[cfg(feature = "icons")]
@@ -11,10 +11,10 @@ use crate::ui_config::{
     MODAL_MAX_HEIGHT, MODAL_MESSAGE_SIZE, MODAL_PADDING, MODAL_TITLE_SIZE, MODAL_VERTICAL_SPACING,
     MODAL_WIDTH, SCROLLBAR_RESERVED_SPACE, WIDGET_HORIZONTAL_SPACING,
 };
-use crate::widgets::{modal, Button, ButtonStyle};
+use crate::widgets::{Button, ButtonStyle, modal};
 
 #[cfg(feature = "icons")]
-use crate::widgets::{icon, IconColor};
+use crate::widgets::{IconColor, icon};
 
 pub fn confirmation(
     inner_content_container: Container<'static, Message>,
