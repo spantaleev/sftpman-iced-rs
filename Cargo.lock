@@ -2321,7 +2321,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "fc2f4eb4bc735547cfed7c0a4922cbd04a4655978c09b54f1f7b228750664c34"
 dependencies = [
  "cfg-if",
- "windows-targets 0.48.5",
+ "windows-targets 0.52.6",
 ]
 
 [[package]]
@@ -2839,9 +2839,9 @@ dependencies = [
 
 [[package]]
 name = "once_cell"
-version = "1.20.3"
+version = "1.21.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "945462a4b81e43c4e3ba96bd7b49d834c6f61198356aa858733bc4acf3cbe62e"
+checksum = "d75b0bedcc4fe52caa0e03d9f1151a323e4aa5e2d78ba3580400cd3c9e2bc4bc"
 
 [[package]]
 name = "option-ext"
@@ -3696,15 +3696,16 @@ dependencies = [
 
 [[package]]
 name = "sftpman"
-version = "2.0.6"
+version = "2.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3f52f150957c0ed8686fa375504ae2a2a33ce250e1cc00027a412af58e7bfdf3"
+checksum = "0fa163404d67283fb5fcec0254ee791a3828bdf117bc99882901efcb875ea7d2"
 dependencies = [
  "directories",
  "env_logger",
  "log",
  "mnt",
  "nix",
+ "once_cell",
  "procfs",
  "rand 0.9.0",
  "serde",
@@ -3715,7 +3716,7 @@ dependencies = [
 
 [[package]]
 name = "sftpman-iced"
-version = "2.0.8"
+version = "2.1.0"
 dependencies = [
  "env_logger",
  "iced",

@@ -1,3 +1,7 @@
+# 2025-03-23 (Version 2.1.0)
+
+- Dependency updates - adding support for using `fusermount3` and falling back to `fusermount` if it's not available (related to [sftpman-rs/#3](https://github.com/spantaleev/sftpman-rs/issues/3)).
+
 # 2025-03-15 (Version 2.0.8)
 
 - Dependency updates
