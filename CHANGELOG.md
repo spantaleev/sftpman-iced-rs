@@ -1,3 +1,13 @@
+# 2025-12-08 (Version 2.2.0)
+
+- (**Internal Improvement**) Dependency updates, including upgrade to `iced` [v0.14.0](https://github.com/iced-rs/iced/releases/tag/0.14.0), which:
+
+  - necessitated the removal of [iced_aw](https://github.com/iced-rs/iced_aw) (previously used for number input widgets)
+
+  - [replaced automatic theme detection with manual control via an `ICED_THEME` environment variable](https://github.com/iced-rs/iced/pull/3051)
+
+- (**Feature**) Added support for changing the iced theme based on the `ICED_THEME` environment variable. See [How can I change the theme and why doesn't light/dark autodetection work?](README.md#how-can-i-change-the-theme-and-why-doesnt-lightdark-autodetection-work)
+
 # 2025-03-23 (Version 2.1.0)
 
 - Dependency updates - adding support for using `fusermount3` and falling back to `fusermount` if it's not available (related to [sftpman-rs/#3](https://github.com/spantaleev/sftpman-rs/issues/3)).
