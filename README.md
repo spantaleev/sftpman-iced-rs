@@ -22,7 +22,7 @@ It's a GUI frontend to the [sftpman](https://github.com/spantaleev/sftpman-rs) c
 
 - an askpass application, so you can be asked to enter SSH key passphrases. Examples are: [ksshaskpass](https://github.com/KDE/ksshaskpass) (included in KDE Plasma), [seahorse](https://wiki.gnome.org/Apps/Seahorse) (included in GNOME). Also see [Alternative passphrase dialogs](https://wiki.archlinux.org/title/SSH_keys#Alternative_passphrase_dialogs) on the ArchLinux wiki.
 
-💡 **Note**: Installing the `sftpman-iced` GUI application will automatically pull the `libsftpman` library (provided by [sftpman](https://github.com/spantaleev/sftpman-rs)) as a dependency, but will **not** automatically install the `sftpman` CLI binary.
+💡 **Note**: Installing the `sftpman-iced` GUI application will automatically pull the `libsftpman` library (provided by [sftpman](https://github.com/spantaleev/sftpman-rs)) as a dependency, but will **not** automatically install the `sftpman` CLI binary. If you'd like to use the `sftpman` CLI, install it separately.
 
 ### Installing on ArchLinux
 
