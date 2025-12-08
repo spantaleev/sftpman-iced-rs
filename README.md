@@ -129,6 +129,19 @@ Unmounting (running `fusermount -u ..` commands, etc.) can more easily be accomp
 Also see: [Is sftpman v2 compatible with sftpman v1?](https://github.com/spantaleev/sftpman-rs/blob/master/README.md#is-sftpman-v2-compatible-with-sftpman-v1)
 
 
+### How can I change the theme and why doesn't light/dark autodetection work?
+
+Light/dark autodetection used to work prior to our upgrade to [iced v0.14](https://github.com/iced-rs/iced/releases/tag/0.14.0), which [changed the way it works](https://github.com/iced-rs/iced/pull/3051).
+
+`sftpman-iced` now defaults to the `Light` theme, but supports changing the theme to one of the [other available themes](https://github.com/iced-rs/iced/blob/3997291f318a8bc06fa522f5579836fb3feb94df/core/src/theme.rs#L65-L88) via the `ICED_THEME` environment variable.
+
+Example usage:
+
+```sh
+ICED_THEME=Nord sftpman-iced
+```
+
+
 ## Acknowledgements
 
 `sftpman-iced` is built with [iced](https://github.com/iced-rs/iced) - a cross-platform GUI library for Rust focused on simplicity and type-safety.

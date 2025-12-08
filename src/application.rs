@@ -13,6 +13,8 @@ use crate::ui_config::{APP_HEIGHT, APP_WIDTH};
 
 const APPLICATION_ID: &str = env!("CARGO_PKG_NAME");
 
+const DEFAULT_THEME: Theme = Theme::Light;
+
 #[derive(Debug, Clone)]
 pub enum ApplicationMessage {
     PutContentInClipboard(String),
@@ -21,6 +23,7 @@ pub enum ApplicationMessage {
 
 struct Application {
     pages: Vec<Box<dyn Page>>,
+    theme: Theme,
 }
 
 impl Application {
@@ -32,12 +35,50 @@ impl Application {
             Task::perform(async {}, |_| Message::Home(HomeMessage::RunPreflightCheck)),
         ]);
 
+        let theme = Self::resolve_theme();
+
         (
             Self {
                 pages: vec![Box::new(Home::new(manager.clone()))],
+                theme,
             },
             tasks,
         )
+    }
+
+    fn resolve_theme() -> Theme {
+        match std::env::var("ICED_THEME") {
+            Ok(env_theme) => {
+                let found = Theme::ALL
+                    .iter()
+                    .find(|theme| format!("{:?}", theme).eq_ignore_ascii_case(&env_theme))
+                    .cloned();
+
+                match found {
+                    Some(theme) => {
+                        log::info!("Overriding theme from default ({:?}) to {:?}", DEFAULT_THEME, theme);
+                        theme
+                    },
+                    None => {
+                        log::warn!(
+                            "Theme '{}' not found. Falling back to default ({:?}). Available themes: {:?}",
+                            env_theme,
+                            DEFAULT_THEME,
+                            Theme::ALL
+                        );
+                        DEFAULT_THEME
+                    }
+                }
+            }
+            Err(_) => {
+                log::debug!(
+                    "No theme specified in the ICED_THEME environment variable. Falling back to default ({:?}). Available themes: {:?}",
+                    DEFAULT_THEME,
+                    Theme::ALL
+                );
+                DEFAULT_THEME
+            }
+        }
     }
 
     fn update(&mut self, message: Message) -> Task<Message> {
@@ -84,7 +125,7 @@ impl Application {
     }
 
     fn theme(&self) -> Theme {
-        Theme::Light
+        self.theme.clone()
     }
 
     fn subscription(&self) -> Subscription<Message> {
