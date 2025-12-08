@@ -1,5 +1,5 @@
 use iced::Alignment::Center;
-use iced::widget::{Container, Space, column, container, horizontal_space, row, scrollable, text};
+use iced::widget::{Container, Space, column, container, row, scrollable, text};
 use iced::{Element, Length};
 
 #[cfg(feature = "icons")]
@@ -48,13 +48,13 @@ pub fn confirmation(
             container(scrollable(
                 row![
                     text(payload.message.clone()).size(MODAL_MESSAGE_SIZE),
-                    Space::with_width(SCROLLBAR_RESERVED_SPACE)
+                    Space::new().width(SCROLLBAR_RESERVED_SPACE)
                 ]
                 .width(Length::Fill)
                 .spacing(WIDGET_HORIZONTAL_SPACING),
             ),)
             .max_height(MODAL_MAX_HEIGHT),
-            row![btn_confirm.build(), horizontal_space(), btn_cancel.build()]
+            row![btn_confirm.build(), Space::new().width(Length::Fill), btn_cancel.build()]
                 .spacing(WIDGET_HORIZONTAL_SPACING)
         ]
         .spacing(MODAL_VERTICAL_SPACING),

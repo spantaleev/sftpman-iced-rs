@@ -1,5 +1,5 @@
-use iced::widget::{button as iced_button, container, horizontal_space, row, text, tooltip};
-use iced::{Center, Element, Length};
+use iced::widget::{button as iced_button, container, row, text, tooltip, Space};
+use iced::{Center, Color, Element, Length};
 
 #[cfg(feature = "icons")]
 use iced::widget::svg;
@@ -115,7 +115,7 @@ impl Button {
             if let ButtonIconPosition::Right = self.icon_position {
                 let icon_text = self.build_icon_text();
                 if let Some(icon_text) = icon_text {
-                    button_content = button_content.push(horizontal_space());
+                    button_content = button_content.push(Space::new().width(Length::Fill));
                     button_content = button_content.push(icon_text);
                 }
             }
@@ -170,7 +170,42 @@ impl ButtonStyle {
             ButtonStyle::Primary => iced_button::primary(theme, active_status),
             ButtonStyle::Danger => iced_button::danger(theme, active_status),
             ButtonStyle::Success => iced_button::success(theme, active_status),
-            ButtonStyle::Secondary => iced_button::secondary(theme, active_status),
+            ButtonStyle::Secondary => {
+                let mut style = iced_button::secondary(theme, active_status);
+
+                // Since iced 0.14.0, the default secondary button style is quite dark (gray) with black text,
+                // which results in an ugly look and poor contrast.
+                // We want to restore the previous look (light gray).
+                if let iced::theme::Theme::Light = theme {
+                    let base_color = Color::from_rgb8(230, 230, 230);
+                    let hovered_color = Color::from_rgb8(210, 210, 210);
+                    let pressed_color = Color::from_rgb8(190, 190, 190);
+                    let disabled_color = Color::from_rgb8(240, 240, 240);
+                    let disabled_text_color = Color::from_rgb8(160, 160, 160);
+
+                    match active_status {
+                        iced_button::Status::Active => {
+                            style.background = Some(base_color.into());
+                        }
+                        iced_button::Status::Hovered => {
+                            style.background = Some(hovered_color.into());
+                        }
+                        iced_button::Status::Pressed => {
+                            style.background = Some(pressed_color.into());
+                        }
+                        iced_button::Status::Disabled => {
+                            style.background = Some(disabled_color.into());
+                            style.text_color = disabled_text_color;
+                        }
+                    }
+
+                    if !matches!(active_status, iced_button::Status::Disabled) {
+                        style.text_color = Color::BLACK;
+                    }
+                }
+
+                style
+            }
             ButtonStyle::SecondaryOutlined => {
                 let mut style = iced_button::secondary(theme, active_status);
                 style.border = style.border.color(theme.palette().text).width(1);

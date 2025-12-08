@@ -1,4 +1,4 @@
-use iced::widget::{Row, horizontal_space, row};
+use iced::widget::{Row, row, Space};
 use iced::{Center, Length};
 
 #[cfg(feature = "icons")]
@@ -76,10 +76,10 @@ pub fn control_bar(
 
     row![
         btn_new.build(),
-        horizontal_space(),
+        Space::new().width(Length::Fill),
         btn_mount_all.build(),
         btn_unmount_all.build(),
-        horizontal_space(),
+        Space::new().width(Length::Fill),
         btn_search.with_width(home_action_button_width).build(),
         btn_about.with_width(home_action_button_width).build(),
     ]

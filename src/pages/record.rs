@@ -1,10 +1,9 @@
 use iced::Alignment::Center;
 use iced::widget::{
-    self, Column, Container, Row, Space, column, container, horizontal_space, pick_list, row,
+    Column, Container, Row, Space, column, container, pick_list, row,
     scrollable, text, text_input,
 };
 use iced::{Element, Length, Padding, Subscription, Task, keyboard};
-use iced_aw::number_input;
 
 #[cfg(feature = "icons")]
 use iced::widget::svg;
@@ -225,7 +224,7 @@ impl Record {
         // are shown on top of it and a small base container would not result in a well-visible modal.
         let row_scrollable_main_column = scrollable(row![
             record(self.state.clone(), theme),
-            Space::with_width(SCROLLBAR_RESERVED_SPACE)
+            Space::new().width(SCROLLBAR_RESERVED_SPACE)
         ])
         .height(Length::Fill);
 
@@ -244,9 +243,9 @@ impl Page for Record {
         match msg {
             Message::KeyboardTabPressed { shift } => {
                 if shift {
-                    Navigation::None(widget::focus_previous())
+                    Navigation::None(iced::widget::operation::focus_previous())
                 } else {
-                    Navigation::None(widget::focus_next())
+                    Navigation::None(iced::widget::operation::focus_next())
                 }
             }
             Message::DefinitionUpdated(definition) => {
@@ -329,7 +328,13 @@ impl Page for Record {
             }
         }
 
-        Subscription::batch(vec![keyboard::on_key_press(handle_hotkey)])
+        iced::event::listen_with(|event, _status, _window| {
+            if let iced::event::Event::Keyboard(keyboard::Event::KeyPressed { key, modifiers, .. }) = event {
+                handle_hotkey(key, modifiers)
+            } else {
+                None
+            }
+        })
     }
 }
 
@@ -365,8 +370,14 @@ fn record(state: State, theme: &iced::theme::Theme) -> Container<'static, Global
     let def = definition.clone();
     let row_port = row![
         field_control_label(strings::record_port_label(), true, theme).width(RECORD_LABEL_WIDTH),
-        number_input(&def.port, 1..65535, |v| {
-            GlobalMessage::Record(Message::PortChanged(v))
+        text_input("1-65535", &def.port.to_string()).on_input(move |v| {
+             if v.is_empty() {
+                 GlobalMessage::Record(Message::PortChanged(0))
+             } else if let Ok(val) = v.parse::<u16>() {
+                 GlobalMessage::Record(Message::PortChanged(val))
+             } else {
+                 GlobalMessage::Record(Message::PortChanged(def.port))
+             }
         })
     ]
     .spacing(WIDGET_HORIZONTAL_SPACING);
@@ -611,7 +622,7 @@ fn row_controls() -> Row<'static, GlobalMessage> {
         ));
     }
 
-    row![btn_save.build(), horizontal_space(), btn_cancel.build()]
+    row![btn_save.build(), Space::new().width(Length::Fill), btn_cancel.build()]
 }
 
 fn row_sshfs_options_help_text() -> Row<'static, GlobalMessage> {

@@ -1,4 +1,4 @@
-use iced::widget::{Container, Space, column, container, horizontal_space, row, scrollable, text};
+use iced::widget::{Container, Space, column, container, row, scrollable, text};
 use iced::{Element, Length};
 
 #[cfg(feature = "icons")]
@@ -41,7 +41,7 @@ pub fn about(
             container(scrollable(
                 row![
                     about_content(theme),
-                    Space::with_width(SCROLLBAR_RESERVED_SPACE)
+                    Space::new().width(SCROLLBAR_RESERVED_SPACE)
                 ]
                 .width(Length::Fill)
                 .spacing(WIDGET_HORIZONTAL_SPACING),
@@ -68,9 +68,9 @@ fn about_content(theme: &iced::theme::Theme) -> Container<'static, Message> {
 
     #[cfg(feature = "icons")]
     let row_icon = row![
-        horizontal_space(),
+        Space::new().width(Length::Fill),
         container(svg(svg_icon_handle)),
-        horizontal_space(),
+        Space::new().width(Length::Fill),
     ];
 
     #[cfg(not(feature = "icons"))]
@@ -84,14 +84,14 @@ fn about_content(theme: &iced::theme::Theme) -> Container<'static, Message> {
                     env!("CARGO_PKG_NAME").to_string(),
                     SFTPMAN_ICED_LINK.to_string()
                 ),
-                horizontal_space(),
+                Space::new().width(Length::Fill),
                 text(env!("CARGO_PKG_VERSION")),
             ]
             .spacing(WIDGET_HORIZONTAL_SPACING),
             row![
                 text(strings::about_program_powered_by_label()),
                 text_link("sftpman".to_string(), SFTPMAN_LINK.to_string(),),
-                horizontal_space(),
+                Space::new().width(Length::Fill),
                 text(libsftpman::VERSION),
             ]
             .spacing(WIDGET_HORIZONTAL_SPACING),
@@ -112,7 +112,7 @@ fn about_content(theme: &iced::theme::Theme) -> Container<'static, Message> {
         column![
             row![
                 text_link(AUTHOR_NAME.to_string(), AUTHOR_LINK.to_string()),
-                horizontal_space(),
+                Space::new().width(Length::Fill),
                 text_link(
                     AUTHOR_COMPANY_NAME.to_string(),
                     AUTHOR_COMPANY_LINK.to_string()
@@ -124,7 +124,7 @@ fn about_content(theme: &iced::theme::Theme) -> Container<'static, Message> {
                     strings::about_donate_on_platform_button("Liberapay"),
                     DONATE_LIBERAPAY_LINK.to_string()
                 ),
-                horizontal_space(),
+                Space::new().width(Length::Fill),
                 text_link(
                     strings::about_donate_on_platform_button("Ko-Fi"),
                     DONATE_KOFI_LINK.to_string()

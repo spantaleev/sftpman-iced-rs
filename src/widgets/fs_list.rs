@@ -1,5 +1,5 @@
 use iced::Length;
-use iced::widget::{Column, Container, Row, horizontal_space, row, toggler};
+use iced::widget::{Column, Container, Row, row, toggler, Space};
 
 #[cfg(feature = "icons")]
 use iced::widget::svg;
@@ -103,7 +103,7 @@ fn fs_list_row(
 
     let row = row![
         widget_toggler,
-        horizontal_space(),
+        Space::new().width(Length::Fill),
         widget_btn_open.build(),
         widget_btn_options.build(),
     ]
@@ -127,7 +127,7 @@ fn build_options_row(
     home_action_button_width: &Length,
 ) -> Row<'static, Message> {
     row![
-        horizontal_space(),
+        Space::new().width(Length::Fill),
         create_edit_option_button(definition)
             .with_width(*home_action_button_width)
             .build(),

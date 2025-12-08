@@ -1,37 +1,37 @@
 use std::ops::Deref;
 
-pub const APP_WIDTH: u16 = 800;
-pub const APP_HEIGHT: u16 = 700;
+pub const APP_WIDTH: f32 = 800.0;
+pub const APP_HEIGHT: f32 = 700.0;
 
-pub const SCROLLBAR_RESERVED_SPACE: u16 = 15;
+pub const SCROLLBAR_RESERVED_SPACE: f32 = 15.0;
 
-pub const WIDGET_HORIZONTAL_SPACING: u16 = 10;
-pub const WIDGET_VERTICAL_SPACING: u16 = 10;
+pub const WIDGET_HORIZONTAL_SPACING: f32 = 10.0;
+pub const WIDGET_VERTICAL_SPACING: f32 = 10.0;
 
-pub const ICON_TO_TEXT_SPACING: u16 = 5;
+pub const ICON_TO_TEXT_SPACING: f32 = 5.0;
 
-pub const FS_LIST_SPACING_BETWEEN_ROW_AND_OPTIONS: u16 = 5;
-pub const FS_LIST_SPACING_BETWEEN_ROWS: u16 = 5;
-pub const FS_LIST_EMPTY_LIST_ICON_SIZE: u16 = 48;
+pub const FS_LIST_SPACING_BETWEEN_ROW_AND_OPTIONS: f32 = 5.0;
+pub const FS_LIST_SPACING_BETWEEN_ROWS: f32 = 5.0;
+pub const FS_LIST_EMPTY_LIST_ICON_SIZE: f32 = 48.0;
 
-pub const MODAL_VERTICAL_SPACING: u16 = 20;
-pub const MODAL_PADDING: u16 = 10;
-pub const MODAL_MAX_HEIGHT: u16 = 480;
-pub const MODAL_WIDTH: u16 = 450;
-pub const MODAL_TITLE_SIZE: u16 = 24;
-pub const MODAL_MESSAGE_SIZE: u16 = 16;
+pub const MODAL_VERTICAL_SPACING: f32 = 20.0;
+pub const MODAL_PADDING: f32 = 10.0;
+pub const MODAL_MAX_HEIGHT: f32 = 480.0;
+pub const MODAL_WIDTH: f32 = 450.0;
+pub const MODAL_TITLE_SIZE: f32 = 24.0;
+pub const MODAL_MESSAGE_SIZE: f32 = 16.0;
 
 // This is intentionally larger than the default modal width,
 // because it contains additional buttons which take space.
-pub const MOUNT_ERROR_MODAL_WIDTH: u16 = 600;
+pub const MOUNT_ERROR_MODAL_WIDTH: f32 = 600.0;
 
-pub const ABOUT_MODAL_WIDTH: u16 = 550;
+pub const ABOUT_MODAL_WIDTH: f32 = 550.0;
 
-pub const ICON_SIZE: u16 = 16;
+pub const ICON_SIZE: f32 = 16.0;
 
-pub const RECORD_LABEL_WIDTH: u16 = 230;
+pub const RECORD_LABEL_WIDTH: f32 = 230.0;
 
-pub const ABOUT_LABEL_WIDTH: u16 = 110;
+pub const ABOUT_LABEL_WIDTH: f32 = 110.0;
 
 pub fn home_action_button_width() -> f32 {
     // This abuses the translation system to store the width of the home action buttons.

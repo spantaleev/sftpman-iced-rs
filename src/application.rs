@@ -1,7 +1,6 @@
 use std::process::Command;
 
 use iced::clipboard;
-use iced::widget;
 use iced::window::settings::PlatformSpecific;
 use iced::{Element, Font, Subscription, Task, Theme};
 
@@ -29,7 +28,7 @@ impl Application {
         let manager = Manager::new().unwrap();
 
         let tasks = Task::batch([
-            widget::focus_next(),
+            iced::widget::operation::focus_next(),
             Task::perform(async {}, |_| Message::Home(HomeMessage::RunPreflightCheck)),
         ]);
 
@@ -85,11 +84,7 @@ impl Application {
     }
 
     fn theme(&self) -> Theme {
-        #[cfg(feature = "auto-detect-theme")]
-        return detect_theme();
-
-        #[cfg(not(feature = "auto-detect-theme"))]
-        return Theme::Light;
+        Theme::Light
     }
 
     fn subscription(&self) -> Subscription<Message> {
@@ -132,23 +127,21 @@ pub fn run_application() -> iced::Result {
         );
     }
 
-    let mut app = iced::application(APPLICATION_ID, Application::update, Application::view)
+    let app = iced::application(Application::new, Application::update, Application::view)
+        .title(Application::title)
         .subscription(Application::subscription)
-        .window_size((APP_WIDTH as f32, APP_HEIGHT as f32))
+        .window_size((APP_WIDTH, APP_HEIGHT))
         .window(window_settings)
         .theme(Application::theme)
         .default_font(Font::DEFAULT);
 
-    // The default feature ("required") of iced_fonts is pulled by default, because it's a dependency for iced_aw.
-    // We need to include these required fonts so that widgets like number_input can have working icons.
-    app = app.font(iced_aw::iced_fonts::REQUIRED_FONT_BYTES);
-
-    app.run_with(Application::new)
+    app.run()
 }
 
-#[cfg(feature = "auto-detect-theme")]
-fn detect_theme() -> Theme {
-    Theme::default()
+impl Application {
+    fn title(&self) -> String {
+        String::from(APPLICATION_ID)
+    }
 }
 
 pub enum Navigation {

@@ -1,5 +1,5 @@
 use iced::Alignment::Center;
-use iced::widget::{Container, Space, column, container, horizontal_space, row, scrollable, text};
+use iced::widget::{Container, Space, column, container, row, scrollable, text};
 use iced::{Element, Length};
 
 #[cfg(feature = "icons")]
@@ -42,7 +42,7 @@ pub fn alert(
     for btn in payload.additional_buttons.iter() {
         buttons_row = buttons_row.push(btn.clone().build());
     }
-    buttons_row = buttons_row.push(horizontal_space());
+    buttons_row = buttons_row.push(Space::new().width(Length::Fill));
     buttons_row = buttons_row.push(btn_close.build());
 
     let dialog = container(
@@ -51,7 +51,7 @@ pub fn alert(
             container(scrollable(
                 row![
                     text(payload.message.clone()).size(MODAL_MESSAGE_SIZE),
-                    Space::with_width(SCROLLBAR_RESERVED_SPACE)
+                    Space::new().width(SCROLLBAR_RESERVED_SPACE)
                 ]
                 .width(Length::Fill)
                 .spacing(WIDGET_HORIZONTAL_SPACING),
@@ -75,7 +75,7 @@ pub struct AlertConfig {
     pub on_close: Box<Message>,
     pub close_button: Box<Button>,
     pub additional_buttons: Vec<Button>,
-    pub width: u16,
+    pub width: f32,
 
     #[cfg(feature = "icons")]
     pub svg_icon_handle: Option<svg::Handle>,
@@ -113,7 +113,7 @@ impl AlertConfig {
         self
     }
 
-    pub fn with_width(mut self, width: u16) -> Self {
+    pub fn with_width(mut self, width: f32) -> Self {
         self.width = width;
         self
     }

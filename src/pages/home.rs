@@ -1,6 +1,6 @@
 use std::time::{Duration, Instant};
 
-use iced::widget::{Container, column, container, scrollable, text_input};
+use iced::widget::{Container, column, container, scrollable};
 use iced::{Length, Padding, Subscription, Task, keyboard, time};
 
 #[cfg(feature = "icons")]
@@ -250,7 +250,7 @@ impl Page for Home {
                 self.state.search_enabled = !self.state.search_enabled;
 
                 if self.state.search_enabled {
-                    Navigation::None(text_input::focus(SEARCH_BAR_INPUT_FIELD_ID))
+                    Navigation::None(iced::widget::operation::focus(SEARCH_BAR_INPUT_FIELD_ID))
                 } else {
                     Navigation::None(Task::none())
                 }
@@ -713,7 +713,13 @@ impl Page for Home {
 
         Subscription::batch(vec![
             periodic_refresh_tick,
-            keyboard::on_key_press(handle_hotkey),
+            iced::event::listen_with(|event, _status, _window| {
+                 if let iced::event::Event::Keyboard(keyboard::Event::KeyPressed { key, modifiers, .. }) = event {
+                     handle_hotkey(key, modifiers)
+                 } else {
+                     None
+                 }
+            })
         ])
     }
 }
