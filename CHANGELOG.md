@@ -1,3 +1,7 @@
+# 2025-12-10 (Version 2.2.1)
+
+- (**Internal Improvement**) Build warnings fixes
+
 # 2025-12-08 (Version 2.2.0)
 
 - (**Internal Improvement**) Dependency updates, including upgrade to `iced` [v0.14.0](https://github.com/iced-rs/iced/releases/tag/0.14.0), which:
