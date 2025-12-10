@@ -120,7 +120,7 @@ impl Application {
         }
     }
 
-    fn view(&self) -> Element<Message> {
+    fn view(&self) -> Element<'_, Message> {
         self.pages.last().unwrap().view(&self.theme())
     }
 
@@ -193,6 +193,6 @@ pub enum Navigation {
 
 pub trait Page {
     fn update(&mut self, message: Message) -> Navigation;
-    fn view(&self, theme: &iced::theme::Theme) -> Element<Message>;
+    fn view(&self, theme: &iced::theme::Theme) -> Element<'_, Message>;
     fn subscription(&self) -> Subscription<Message>;
 }

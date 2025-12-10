@@ -672,7 +672,7 @@ impl Page for Home {
         }
     }
 
-    fn view(&self, theme: &iced::theme::Theme) -> iced::Element<GlobalMessage> {
+    fn view(&self, theme: &iced::theme::Theme) -> iced::Element<'_, GlobalMessage> {
         let container = self.render(theme);
 
         if let Some(payload) = &self.state.confirmation {
