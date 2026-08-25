@@ -156,6 +156,7 @@ pub fn record_cancel_label() -> String {
     t!("record_cancel_label").to_string()
 }
 
+#[cfg(feature = "file-picker")]
 pub fn browse_label() -> String {
     t!("browse_label").to_string()
 }

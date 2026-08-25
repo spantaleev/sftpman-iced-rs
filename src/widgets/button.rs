@@ -1,11 +1,14 @@
-use iced::widget::{Space, button as iced_button, container, row, text, tooltip};
+use iced::widget::{button as iced_button, container, row, text, tooltip};
 use iced::{Center, Color, Element, Length};
 
 #[cfg(feature = "icons")]
-use iced::widget::svg;
+use iced::widget::{Space, svg};
 
 use crate::messages::Message;
-use crate::ui_config::{ICON_SIZE, ICON_TO_TEXT_SPACING};
+use crate::ui_config::ICON_TO_TEXT_SPACING;
+
+#[cfg(feature = "icons")]
+use crate::ui_config::ICON_SIZE;
 
 #[derive(Debug, Clone)]
 pub struct Button {

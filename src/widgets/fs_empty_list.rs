@@ -9,8 +9,11 @@ use iced::widget::svg;
 #[cfg(feature = "icons")]
 use crate::widgets::{IconColor, icon};
 
+use crate::strings;
 use crate::{messages::Message, ui_config::WIDGET_VERTICAL_SPACING};
-use crate::{strings, ui_config::FS_LIST_EMPTY_LIST_ICON_SIZE};
+
+#[cfg(feature = "icons")]
+use crate::ui_config::FS_LIST_EMPTY_LIST_ICON_SIZE;
 
 pub fn fs_empty_list() -> Container<'static, Message> {
     #[cfg(feature = "icons")]

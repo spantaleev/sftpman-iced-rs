@@ -1,3 +1,12 @@
+// Various widget builders are only mutated further when the optional `icons` / `file-picker`
+// features are enabled (e.g. to attach an icon handle to a button).
+// In builds without these features, the `mut` bindings are unnecessary, but we'd rather
+// keep the code readable than sprinkle `cfg_attr` attributes over every such call site.
+#![cfg_attr(
+    not(all(feature = "icons", feature = "file-picker")),
+    allow(unused_mut)
+)]
+
 mod application;
 mod assets;
 mod locale;

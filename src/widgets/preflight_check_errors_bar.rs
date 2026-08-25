@@ -9,10 +9,15 @@ use crate::messages::Message;
 use crate::pages::HomeMessage;
 use crate::strings;
 use crate::ui_config::{
-    ICON_SIZE, ICON_TO_TEXT_SPACING, WIDGET_HORIZONTAL_SPACING, WIDGET_VERTICAL_SPACING,
+    ICON_TO_TEXT_SPACING, WIDGET_HORIZONTAL_SPACING, WIDGET_VERTICAL_SPACING,
     home_action_button_width,
 };
-use crate::widgets::{Button, IconColor, icon};
+use crate::widgets::Button;
+
+#[cfg(feature = "icons")]
+use crate::ui_config::ICON_SIZE;
+#[cfg(feature = "icons")]
+use crate::widgets::{IconColor, icon};
 
 pub fn preflight_check_errors_bar(
     errors: Vec<String>,

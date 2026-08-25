@@ -15,9 +15,12 @@ use crate::messages::Message as GlobalMessage;
 use crate::pages::{AlertConfig, alert};
 use crate::strings;
 use crate::ui_config::{
-    ICON_SIZE, ICON_TO_TEXT_SPACING, RECORD_LABEL_WIDTH, SCROLLBAR_RESERVED_SPACE,
-    WIDGET_HORIZONTAL_SPACING, WIDGET_VERTICAL_SPACING,
+    ICON_TO_TEXT_SPACING, RECORD_LABEL_WIDTH, SCROLLBAR_RESERVED_SPACE, WIDGET_HORIZONTAL_SPACING,
+    WIDGET_VERTICAL_SPACING,
 };
+
+#[cfg(feature = "icons")]
+use crate::ui_config::ICON_SIZE;
 use crate::utils::errors_to_string_list;
 use crate::widgets::{Button, ButtonStyle, field_control_label, text_link};
 
