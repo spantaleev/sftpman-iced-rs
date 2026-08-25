@@ -28,16 +28,15 @@ env_logger = { version = "0.11.*" }
 # so we're hardcoding wgpu here.
 iced = { version = "0.14.*", default-features = false, features = ["tokio", "wgpu"] }
 log = "0.4.*"
-# For rfd, we rely on xdg-portal, which requires tokio or async-std.
+# For rfd, we rely on xdg-portal (which talks to the desktop portal over DBus).
 # The alternative is the gtk3 feature, but that one links to gtk3 - we'd rather be independent.
-rfd = { version = "0.16.*",  default-features = false, features = ["xdg-portal", "tokio"], optional = true }
-rust-i18n = "3.1.5"
+rfd = { version = "0.17.*",  default-features = false, features = ["xdg-portal"], optional = true }
+rust-i18n = "4.2.1"
 sftpman = { version = ">=2.1.0", default-features = false }
-tokio = { version="1.48.*", features = ["rt-multi-thread"], optional = true }
 
 [features]
 default = ["file-picker", "icons", "wayland", "x11"]
-file-picker = ["dep:rfd", "dep:tokio"]
+file-picker = ["dep:rfd"]
 icons = ["iced/svg"]
 wayland = ["iced/wayland"]
 x11 = ["iced/x11"]

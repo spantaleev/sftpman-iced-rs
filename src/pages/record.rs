@@ -254,15 +254,7 @@ impl Page for Record {
             }
             #[cfg(feature = "file-picker")]
             Message::BrowseSshKeyTriggered(state) => {
-                let rt = tokio::runtime::Runtime::new().unwrap();
-
-                let mut file = None;
-
-                rt.block_on(async {
-                    file = tokio::task::block_in_place(|| {
-                        rfd::FileDialog::new().set_directory("~").pick_file()
-                    });
-                });
+                let file = rfd::FileDialog::new().set_directory("~").pick_file();
 
                 if let Some(file) = file {
                     let mut def = state.definition.clone();
