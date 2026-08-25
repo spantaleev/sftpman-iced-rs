@@ -129,17 +129,37 @@ Unmounting (running `fusermount -u ..` commands, etc.) can more easily be accomp
 Also see: [Is sftpman v2 compatible with sftpman v1?](https://github.com/spantaleev/sftpman-rs/blob/master/README.md#is-sftpman-v2-compatible-with-sftpman-v1)
 
 
-### How can I change the theme and why doesn't light/dark autodetection work?
+### Does sftpman-iced have a dark mode?
 
-Light/dark autodetection used to work prior to our upgrade to [iced v0.14](https://github.com/iced-rs/iced/releases/tag/0.14.0), which [changed the way it works](https://github.com/iced-rs/iced/pull/3051).
+Yes. By default, `sftpman-iced` follows your desktop's light/dark color-scheme preference and switches themes on the fly when you change it.
 
-`sftpman-iced` now defaults to the `Light` theme, but supports changing the theme to one of the [other available themes](https://github.com/iced-rs/iced/blob/3997291f318a8bc06fa522f5579836fb3feb94df/core/src/theme.rs#L65-L88) via the `ICED_THEME` environment variable.
+The preference is read from the [XDG desktop portal](https://flatpak.github.io/xdg-desktop-portal/docs/) (the `color-scheme` key of the `org.freedesktop.appearance` namespace), which is what GNOME, KDE Plasma and other modern desktop environments use to announce their dark-mode setting.
 
-Example usage:
+If your setup does not provide a desktop portal (a bare window manager, for example), no preference can be detected and `sftpman-iced` falls back to the `Light` theme. In that case, use the `ICED_THEME` environment variable described below.
+
+
+### How can I change the theme?
+
+Set the `ICED_THEME` environment variable to one of the [themes that iced provides](https://github.com/iced-rs/iced/blob/3997291f318a8bc06fa522f5579836fb3feb94df/core/src/theme.rs#L65-L88):
 
 ```sh
 ICED_THEME=Nord sftpman-iced
 ```
+
+An explicitly requested theme always wins over the color scheme your desktop reports, so this is also the way to run `sftpman-iced` dark on a light desktop (`ICED_THEME=Dark`) or the other way around.
+
+
+### Can I build sftpman-iced without the dark-mode detection?
+
+Yes. Detecting the desktop's color scheme requires talking to the desktop portal over DBus, which grows the release binary by roughly 1.8MB.
+
+If you would rather not pay for that, build with the `system-theme-detection` feature disabled:
+
+```sh
+cargo install sftpman-iced --no-default-features --features file-picker,icons,wayland,x11
+```
+
+The `ICED_THEME` environment variable keeps working in such builds.
 
 
 ## Acknowledgements

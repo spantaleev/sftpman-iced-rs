@@ -1,6 +1,7 @@
 use std::process::Command;
 
 use iced::clipboard;
+use iced::theme::Mode as ThemeMode;
 use iced::window::settings::PlatformSpecific;
 use iced::{Element, Font, Subscription, Task, Theme};
 
@@ -13,16 +14,25 @@ use crate::ui_config::{APP_HEIGHT, APP_WIDTH};
 
 const APPLICATION_ID: &str = env!("CARGO_PKG_NAME");
 
+/// The theme to use when we have nothing better to go by
+/// (no `ICED_THEME` override and no color-scheme preference reported by the system).
 const DEFAULT_THEME: Theme = Theme::Light;
 
 #[derive(Debug, Clone)]
 pub enum ApplicationMessage {
     PutContentInClipboard(String),
     OpenLink(String),
+    SystemThemeModeChanged(ThemeMode),
 }
 
 struct Application {
     pages: Vec<Box<dyn Page>>,
+
+    /// An explicit theme, as requested via the `ICED_THEME` environment variable.
+    /// When set, it wins over whatever color scheme the system reports.
+    theme_override: Option<Theme>,
+
+    /// The theme we are currently rendering with.
     theme: Theme,
 }
 
@@ -30,64 +40,108 @@ impl Application {
     fn new() -> (Self, Task<Message>) {
         let manager = Manager::new().unwrap();
 
-        let tasks = Task::batch([
+        let theme_override = Self::theme_override_from_env();
+
+        let mut tasks = vec![
             iced::widget::operation::focus_next(),
             Task::perform(async {}, |_| Message::Home(HomeMessage::RunPreflightCheck)),
-        ]);
+        ];
 
-        let theme = Self::resolve_theme();
+        // Without an explicit override, we start out with the default theme and ask the system
+        // about its color-scheme preference. The answer arrives as a message and may replace the theme.
+        if theme_override.is_none() {
+            tasks.push(iced::system::theme().map(|mode| {
+                Message::Application(ApplicationMessage::SystemThemeModeChanged(mode))
+            }));
+        }
 
         (
             Self {
                 pages: vec![Box::new(Home::new(manager.clone()))],
-                theme,
+                theme: theme_override.clone().unwrap_or(DEFAULT_THEME),
+                theme_override,
             },
-            tasks,
+            Task::batch(tasks),
         )
     }
 
-    fn resolve_theme() -> Theme {
-        match std::env::var("ICED_THEME") {
-            Ok(env_theme) => {
-                let found = Theme::ALL
-                    .iter()
-                    .find(|theme| format!("{:?}", theme).eq_ignore_ascii_case(&env_theme))
-                    .cloned();
+    /// Returns the theme explicitly requested via the `ICED_THEME` environment variable, if any.
+    fn theme_override_from_env() -> Option<Theme> {
+        let Ok(env_theme) = std::env::var("ICED_THEME") else {
+            log::debug!(
+                "No theme specified in the ICED_THEME environment variable. Following the system color scheme (falling back to {:?}). Available themes: {:?}",
+                DEFAULT_THEME,
+                Theme::ALL
+            );
 
-                match found {
-                    Some(theme) => {
-                        log::info!(
-                            "Overriding theme from default ({:?}) to {:?}",
-                            DEFAULT_THEME,
-                            theme
-                        );
-                        theme
-                    }
-                    None => {
-                        log::warn!(
-                            "Theme '{}' not found. Falling back to default ({:?}). Available themes: {:?}",
-                            env_theme,
-                            DEFAULT_THEME,
-                            Theme::ALL
-                        );
-                        DEFAULT_THEME
-                    }
-                }
+            return None;
+        };
+
+        let found = Theme::ALL
+            .iter()
+            .find(|theme| format!("{:?}", theme).eq_ignore_ascii_case(&env_theme))
+            .cloned();
+
+        match found {
+            Some(theme) => {
+                log::info!(
+                    "Using the {:?} theme, as requested via the ICED_THEME environment variable",
+                    theme
+                );
+
+                Some(theme)
             }
-            Err(_) => {
-                log::debug!(
-                    "No theme specified in the ICED_THEME environment variable. Falling back to default ({:?}). Available themes: {:?}",
+            None => {
+                log::warn!(
+                    "Theme '{}' not found. Following the system color scheme instead (falling back to {:?}). Available themes: {:?}",
+                    env_theme,
                     DEFAULT_THEME,
                     Theme::ALL
                 );
-                DEFAULT_THEME
+
+                None
             }
         }
+    }
+
+    /// Adopts the color scheme (light/dark) that the system reports.
+    ///
+    /// Detection happens through the XDG desktop portal and requires
+    /// the `system-theme-detection` feature to be enabled at build time.
+    /// Without it, the system always reports [`ThemeMode::None`].
+    fn apply_system_theme_mode(&mut self, mode: ThemeMode) {
+        if self.theme_override.is_some() {
+            // An explicit ICED_THEME value wins over whatever the system prefers.
+            return;
+        }
+
+        let theme = match mode {
+            ThemeMode::Light => Theme::Light,
+            ThemeMode::Dark => Theme::Dark,
+            ThemeMode::None => DEFAULT_THEME,
+        };
+
+        if theme == self.theme {
+            return;
+        }
+
+        log::info!(
+            "Switching to the {:?} theme, following the system color scheme ({:?})",
+            theme,
+            mode
+        );
+
+        self.theme = theme;
     }
 
     fn update(&mut self, message: Message) -> Task<Message> {
         if let Message::Application(message) = message {
             return match message {
+                ApplicationMessage::SystemThemeModeChanged(mode) => {
+                    self.apply_system_theme_mode(mode);
+
+                    Task::none()
+                }
                 ApplicationMessage::PutContentInClipboard(content) => clipboard::write(content),
                 ApplicationMessage::OpenLink(link) => {
                     log::info!("Opening link: {}", link);
@@ -133,7 +187,17 @@ impl Application {
     }
 
     fn subscription(&self) -> Subscription<Message> {
-        self.pages.last().unwrap().subscription()
+        let page_subscription = self.pages.last().unwrap().subscription();
+
+        if self.theme_override.is_some() {
+            return page_subscription;
+        }
+
+        // Keeps us in sync when the user toggles their desktop's dark mode while we're running.
+        let system_theme_subscription = iced::system::theme_changes()
+            .map(|mode| Message::Application(ApplicationMessage::SystemThemeModeChanged(mode)));
+
+        Subscription::batch([page_subscription, system_theme_subscription])
     }
 }
 

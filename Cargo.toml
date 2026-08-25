@@ -35,9 +35,16 @@ rust-i18n = "4.2.1"
 sftpman = { version = ">=2.1.0", default-features = false }
 
 [features]
-default = ["file-picker", "icons", "wayland", "x11"]
+default = ["file-picker", "icons", "system-theme-detection", "wayland", "x11"]
 file-picker = ["dep:rfd"]
 icons = ["iced/svg"]
+# Makes the application follow the desktop's light/dark color-scheme preference,
+# as exposed by the XDG desktop portal (`org.freedesktop.appearance` / `color-scheme`).
+#
+# This pulls in a DBus client stack (zbus and friends), which grows the release binary by ~1.8MB.
+# Builds that would rather not pay for this can disable the feature - the theme can then still
+# be chosen explicitly via the `ICED_THEME` environment variable.
+system-theme-detection = ["iced/linux-theme-detection"]
 wayland = ["iced/wayland"]
 x11 = ["iced/x11"]
 x11-icon = ["iced/image"]
