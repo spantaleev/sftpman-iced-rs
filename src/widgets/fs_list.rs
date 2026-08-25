@@ -26,17 +26,13 @@ pub fn fs_list(
     state
         .into_iter()
         .fold(Column::new(), |col, entity| {
-            let is_expanded = expand_options_for_fs_id
-                .as_ref()
-                .map_or(false, |id| id == &entity.definition.id);
+            let is_expanded = expand_options_for_fs_id.as_ref() == Some(&entity.definition.id);
 
-            let is_mounting = mounting_in_progress_for_fs_id
-                .as_ref()
-                .map_or(false, |id| id == &entity.definition.id);
+            let is_mounting =
+                mounting_in_progress_for_fs_id.as_ref() == Some(&entity.definition.id);
 
-            let is_unmounting = unmounting_in_progress_for_fs_id
-                .as_ref()
-                .map_or(false, |id| id == &entity.definition.id);
+            let is_unmounting =
+                unmounting_in_progress_for_fs_id.as_ref() == Some(&entity.definition.id);
 
             col.push(fs_list_row(
                 entity,

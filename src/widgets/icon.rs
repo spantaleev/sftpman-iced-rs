@@ -18,9 +18,7 @@ pub fn icon(handle: &svg::Handle, size: f32, color: IconColor) -> Container<'sta
         },
     );
 
-    let svg_icon_container = container(svg_icon);
-
-    svg_icon_container
+    container(svg_icon)
 }
 
 pub enum IconColor {
