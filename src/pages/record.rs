@@ -33,7 +33,7 @@ pub enum Message {
     PortChanged(u16),
 
     #[cfg(feature = "file-picker")]
-    BrowseSshKeyTriggered(State),
+    BrowseSshKeyTriggered,
 
     KeyboardTabPressed {
         shift: bool,
@@ -253,16 +253,14 @@ impl Page for Record {
                 Navigation::None(Task::none())
             }
             #[cfg(feature = "file-picker")]
-            Message::BrowseSshKeyTriggered(state) => {
+            Message::BrowseSshKeyTriggered => {
                 let file = rfd::FileDialog::new().set_directory("~").pick_file();
 
                 if let Some(file) = file {
-                    let mut def = state.definition.clone();
+                    let mut def = self.state.definition.clone();
                     def.ssh_key = file.as_os_str().to_str().unwrap().to_owned();
 
-                    let state = state.with_definition(def);
-
-                    self.state = state;
+                    self.state = self.state.clone().with_definition(def);
                 };
 
                 Navigation::None(Task::none())
@@ -427,9 +425,7 @@ fn record(state: State, theme: &iced::theme::Theme) -> Container<'static, Global
         {
             let mut btn_pick_ssh_key = Button::new(strings::browse_label())
                 .with_style(ButtonStyle::Secondary)
-                .with_on_press(Some(GlobalMessage::Record(Message::BrowseSshKeyTriggered(
-                    state,
-                ))));
+                .with_on_press(Some(GlobalMessage::Record(Message::BrowseSshKeyTriggered)));
 
             #[cfg(feature = "icons")]
             {
