@@ -1,5 +1,5 @@
 use iced::Length;
-use iced::widget::{Column, Container, Row, row, toggler, Space};
+use iced::widget::{Column, Container, Row, Space, row, toggler};
 
 #[cfg(feature = "icons")]
 use iced::widget::svg;

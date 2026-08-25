@@ -1,4 +1,4 @@
-use iced::widget::{Row, row, Space};
+use iced::widget::{Row, Space, row};
 use iced::{Center, Length};
 
 #[cfg(feature = "icons")]

@@ -56,9 +56,13 @@ impl Application {
 
                 match found {
                     Some(theme) => {
-                        log::info!("Overriding theme from default ({:?}) to {:?}", DEFAULT_THEME, theme);
+                        log::info!(
+                            "Overriding theme from default ({:?}) to {:?}",
+                            DEFAULT_THEME,
+                            theme
+                        );
                         theme
-                    },
+                    }
                     None => {
                         log::warn!(
                             "Theme '{}' not found. Falling back to default ({:?}). Available themes: {:?}",

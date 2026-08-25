@@ -1,6 +1,6 @@
-use iced::widget::container::rounded_box;
-use iced::widget::{Container, container, row, text, tooltip, Space};
 use iced::Length;
+use iced::widget::container::rounded_box;
+use iced::widget::{Container, Space, container, row, text, tooltip};
 
 use crate::messages::Message;
 use crate::strings;

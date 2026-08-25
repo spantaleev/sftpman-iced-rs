@@ -1,4 +1,4 @@
-use iced::widget::{button as iced_button, container, row, text, tooltip, Space};
+use iced::widget::{Space, button as iced_button, container, row, text, tooltip};
 use iced::{Center, Color, Element, Length};
 
 #[cfg(feature = "icons")]

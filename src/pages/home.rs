@@ -714,12 +714,17 @@ impl Page for Home {
         Subscription::batch(vec![
             periodic_refresh_tick,
             iced::event::listen_with(|event, _status, _window| {
-                 if let iced::event::Event::Keyboard(keyboard::Event::KeyPressed { key, modifiers, .. }) = event {
-                     handle_hotkey(key, modifiers)
-                 } else {
-                     None
-                 }
-            })
+                if let iced::event::Event::Keyboard(keyboard::Event::KeyPressed {
+                    key,
+                    modifiers,
+                    ..
+                }) = event
+                {
+                    handle_hotkey(key, modifiers)
+                } else {
+                    None
+                }
+            }),
         ])
     }
 }

@@ -54,8 +54,12 @@ pub fn confirmation(
                 .spacing(WIDGET_HORIZONTAL_SPACING),
             ),)
             .max_height(MODAL_MAX_HEIGHT),
-            row![btn_confirm.build(), Space::new().width(Length::Fill), btn_cancel.build()]
-                .spacing(WIDGET_HORIZONTAL_SPACING)
+            row![
+                btn_confirm.build(),
+                Space::new().width(Length::Fill),
+                btn_cancel.build()
+            ]
+            .spacing(WIDGET_HORIZONTAL_SPACING)
         ]
         .spacing(MODAL_VERTICAL_SPACING),
     )

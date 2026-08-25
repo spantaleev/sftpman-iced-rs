@@ -1,7 +1,6 @@
 use iced::Alignment::Center;
 use iced::widget::{
-    Column, Container, Row, Space, column, container, pick_list, row,
-    scrollable, text, text_input,
+    Column, Container, Row, Space, column, container, pick_list, row, scrollable, text, text_input,
 };
 use iced::{Element, Length, Padding, Subscription, Task, keyboard};
 
@@ -329,7 +328,12 @@ impl Page for Record {
         }
 
         iced::event::listen_with(|event, _status, _window| {
-            if let iced::event::Event::Keyboard(keyboard::Event::KeyPressed { key, modifiers, .. }) = event {
+            if let iced::event::Event::Keyboard(keyboard::Event::KeyPressed {
+                key,
+                modifiers,
+                ..
+            }) = event
+            {
                 handle_hotkey(key, modifiers)
             } else {
                 None
@@ -371,13 +375,13 @@ fn record(state: State, theme: &iced::theme::Theme) -> Container<'static, Global
     let row_port = row![
         field_control_label(strings::record_port_label(), true, theme).width(RECORD_LABEL_WIDTH),
         text_input("1-65535", &def.port.to_string()).on_input(move |v| {
-             if v.is_empty() {
-                 GlobalMessage::Record(Message::PortChanged(0))
-             } else if let Ok(val) = v.parse::<u16>() {
-                 GlobalMessage::Record(Message::PortChanged(val))
-             } else {
-                 GlobalMessage::Record(Message::PortChanged(def.port))
-             }
+            if v.is_empty() {
+                GlobalMessage::Record(Message::PortChanged(0))
+            } else if let Ok(val) = v.parse::<u16>() {
+                GlobalMessage::Record(Message::PortChanged(val))
+            } else {
+                GlobalMessage::Record(Message::PortChanged(def.port))
+            }
         })
     ]
     .spacing(WIDGET_HORIZONTAL_SPACING);
@@ -622,7 +626,11 @@ fn row_controls() -> Row<'static, GlobalMessage> {
         ));
     }
 
-    row![btn_save.build(), Space::new().width(Length::Fill), btn_cancel.build()]
+    row![
+        btn_save.build(),
+        Space::new().width(Length::Fill),
+        btn_cancel.build()
+    ]
 }
 
 fn row_sshfs_options_help_text() -> Row<'static, GlobalMessage> {
