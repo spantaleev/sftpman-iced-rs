@@ -1,3 +1,15 @@
+# 2026-08-25 (Version 2.3.0)
+
+- (**Feature**) Following the desktop's light/dark color scheme (via the [XDG desktop portal](https://flatpak.github.io/xdg-desktop-portal/docs/)), switching on the fly ([issue #5](https://github.com/spantaleev/sftpman-iced-rs/issues/5)). See [Does sftpman-iced have a dark mode?](README.md#does-sftpman-iced-have-a-dark-mode)
+
+  This costs ~1.8MB of binary size and can be turned off via the new (default-enabled) `system-theme-detection` feature.
+
+- (**Improvement**) `ICED_THEME` now takes precedence over the system color scheme
+
+- (**Internal Improvement**) Dependency updates (`rfd` v0.17 - letting us drop our direct `tokio` dependency, `rust-i18n` v4)
+
+- (**Internal Improvement**) Build and lint warnings fixes, including for non-default feature combinations
+
 # 2025-12-10 (Version 2.2.1)
 
 - (**Internal Improvement**) Build warnings fixes
